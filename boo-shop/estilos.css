@@ -1,0 +1,48 @@
+.header-mia {
+    text-align: center;
+    background-image: url(assets/img/header.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+   
+}
+.uno{
+    text-align: center;
+
+}
+.articulos p{
+	font-style: italic;
+	font-size: 15px;
+}
+.header-mia h1 {
+    font-size: 80px;
+ }
+.header-mia-2{
+	text-align: center;
+	background-color: #F8F8F8;
+    padding-top: 36px;
+    padding-top: 132px
+}
+.articulos img{
+	border-radius: 65px;
+}
+.medidas-1{
+    padding-top: 229px;
+    padding-left: 327px;
+}
+footer{
+	background-color: #2F2F2F;
+}
+section.header-mia{
+    
+    padding: 167px;
+}
+section.uno{
+
+    padding-top:98px;
+}
+.header-mia-2 p{
+    font-size: 15px;
+}
+section.header-mia-3{
+    padding-top: 319px;
+}

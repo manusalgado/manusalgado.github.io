@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
  <head>
+ 
   
     <meta charset="UTF-8">
     <title>PDG</title>
@@ -13,177 +14,76 @@
 </head>
  <body>
 
+ <div>
+ 	<div >
+ 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        var div = $("div");
+        div.animate({left: '100px'}, "slow");
+        div.animate({fontSize: '3em'}, "slow");
+    });
+});
+</script>
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
 
-	<div class="phone">
-		<div class="container">
-		 	<span>HELP <i class="fa fa-phone-square" aria-hidden="true"></i>+57 321 569 58 58</span>
-		</div>
-	 </div>
-      <div class="container">
-      
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">PDG</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">HOME</a></li>
-            <li><a href="#">MEN</a></li>
-            <li><a href="#">WOMEN</a></li>
-            <li><a href="#">SPORT</a></li>
-            <li><a href="#">INFORMAL</a></li>
-            <li><a href="#">FORMAL</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
 
-   <div class="container">
+<button class="get-in">Get in</button>
 
-    <div class="row">
-  <div class="col-sm-3">
-<div class="thumbnail">
-      <img src="img/1.jpg" alt="...">
-      <div class="caption">
-        <h3>Colección relax desde $10 USD</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</a></p>
-      </div>
+<h1>Travels</h1>
+
+<div style="background:#98bf21;height:100px;width:200px;position:absolute;">Welcome!</div>
+ 	</div>
+ </div>
+ 
+ <div class="container">
+ 	<div class="row">
+
+
+   <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="img/1.jpg" alt="Chania">
+    </div>
+
+    <div class="item">
+      <img src="img/2.jpg" alt="Chania">
+    </div>
+
+    <div class="item">
+      <img src="img/3.jpg" alt="Flower">
+    </div>
+
+    <div class="item">
+      <img src="img/4.jpg" alt="Flower">
     </div>
   </div>
 
-  <div class="col-sm-3">
-<div class="thumbnail">
-      <img src="img/2.jpg" alt="...">
-      <div class="caption">
-        <h3>Coleccion coqueta desde $60 USD</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</a></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-sm-3">
-
-  <div class="thumbnail">
-      <img src="img/3.jpg" alt="...">
-      <div class="caption">
-        <h3>Coleccion fiestera desde $50 USD</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</a></p>
-      </div>
-    </div>
-   </div>
-
-  <div class="col-sm-3">
-
-  <div class="thumbnail">
-      <img src="img/4.jpg" alt="...">
-      <div class="caption">
-        <h3>La doña desde $20 USD</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-3">
-
-  <div class="thumbnail">
-      <img src="img/5.jpg" alt="...">
-      <div class="caption">
-        <h3>Thumbnail label</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-3">
-
-  <div class="thumbnail">
-      <img src="img/6.jpg" alt="...">
-      <div class="caption">
-        <h3>Thumbnail label</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-3">
-
-  <div class="thumbnail">
-      <img src="img/7.jpg" alt="...">
-      <div class="caption">
-        <h3>Thumbnail label</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-3">
-
-  <div class="thumbnail">
-      <img src="img/8.jpg" alt="...">
-      <div class="caption">
-        <h3>Thumbnail label</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</a> </p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-3">
-
-  <div class="thumbnail">
-      <img src="img/9.jpg" alt="...">
-      <div class="caption">
-        <h3>Thumbnail label</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</a> </p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-3">
-
-  <div class="thumbnail">
-      <img src="img/10.jpg" alt="...">
-      <div class="caption">
-        <h3>Thumbnail label</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-3">
-
-  <div class="thumbnail">
-      <img src="img/11.jpg" alt="...">
-      <div class="caption">
-        <h3>Thumbnail label</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-3">
-
-  <div class="thumbnail">
-      <img src="img/12.jpg" alt="...">
-      <div class="caption">
-        <h3>Thumbnail label</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</a></p>
-      </div>
-    </div>
-  </div>
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
 </div>
+ 	</div>
+ </div>
 
-  </div> 
+
+</body>
 
 	<script src="js/jquery.js"></script>     
 	<script src="js/bootstrap.js"></script>     
