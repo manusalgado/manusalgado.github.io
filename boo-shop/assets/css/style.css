@@ -1,11 +1,12 @@
 /* Import fonts */
-@import url(http://fonts.googleapis.com/css?family=Raleway:900,300,400);
-@import url(http://fonts.googleapis.com/css?family=Ovo);
+@import url(//fonts.googleapis.com/css?family=Raleway:900,300,400);
+@import url(//fonts.googleapis.com/css?family=Ovo);
 
-* { 
-	margin: 0;
-	padding: 0px;
+* {
+    margin: 0;
+    padding: 0px;
     font-family: 'Raleway', sans-serif;
+    font-size: 19px;
 } 
 body { 
 	background: #fff; 
