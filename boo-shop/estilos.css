@@ -3,25 +3,44 @@
     background-image: url(assets/img/header.png);
     background-size: cover;
     background-repeat: no-repeat;
+    padding: 228px 0;
    
 }
+.header-mia h1 {
+    font-size: 80px;
+    color: #fff;
+    
+ }
+ .header-mia span{
+    color: #fff;
+    font-size: 22px;
+}
+ .divisor {
+    border-top: 4px #fff solid;
+    width: 93px;
+    margin: 21px auto 17px;
+}
+
 .uno{
     text-align: center;
     padding-top: 296px;
+    font-size: 20px;
 
 }
 .articulos p{
 	font-style: italic;
 	font-size: 15px;
 }
-.header-mia h1 {
-    font-size: 80px;
- }
+
 .header-mia-2{
 	text-align: center;
 	background-color: #F8F8F8;
     padding-top: 36px;
     padding-top: 132px
+}
+
+.header-mia-2 p{
+    font-size: 15px;
 }
 .articulos img{
 	border-radius: 65px;
@@ -30,28 +49,30 @@
     margin-right: 68px;
     margin-bottom: 58px;
 }
-.medidas-1{
-    padding-top: 229px;
-    padding-left: 327px;
-}
 footer{
 	background-color: #2F2F2F;
-}
-section.header-mia{
-    
-    padding: 167px;
+    color: #fff;
+    align-content: center;
+
 }
 section.uno{
 
     padding-top:98px;
 }
-.header-mia-2 p{
-    font-size: 15px;
-}
+
 section.header-mia-3{
     padding-top: 319px;
 }
 button.boton-1{
 
     border:5px solid;
+}
+
+.medio {
+    text-align: center;
+    font-weight: bold;
+    border: 2px #5A5A5A solid;
+    font-size: 18px;
+    margin-top: 134px;
+    margin-bottom: 85px;
 }
