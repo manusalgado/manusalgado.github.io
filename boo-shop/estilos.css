@@ -68,17 +68,15 @@ button.boton-1{
     border:5px solid;
 }
 
-.medio {
-    text-align: center;
+span.medio{
     font-weight: bold;
     font-size: 18px;
-    margin-top: 134px;
-    margin-bottom: 85px;
+    border: 2px solid;
+    display: inline;
+    text-align: center;
     display: inline;
 }
-.medio span{
-    border: 2px solid;
-}
+
 i{
     color: #DA4E02;
 }
