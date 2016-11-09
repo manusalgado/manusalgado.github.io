@@ -37,6 +37,7 @@ h5 {
     font-size: 22px;
     letter-spacing: 1px;
 }
+
 .header-mia-2 {
 	text-align: center;
 	background-color: #F8F8F8;
@@ -61,7 +62,6 @@ h5 {
 }
 
 .articulos {
-
 	padding: 80px 0;
 }
 
@@ -70,7 +70,6 @@ section.header-mia-3 {
 }
 
 button.boton-1 {
-
     border:5px solid;
 }
 
