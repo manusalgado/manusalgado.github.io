@@ -1,0 +1,133 @@
+/* Import fonts */
+@import url(//fonts.googleapis.com/css?family=Raleway:900,300,400);
+@import url(//fonts.googleapis.com/css?family=Ovo);
+
+* {
+    margin: 0;
+    padding: 0px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 19px;
+} 
+body { 
+	background: #fff; 
+	margin: 0; 
+	color: #5a5a5a;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Raleway', sans-serif;
+	font-weight: 900;
+}
+
+
+p { 
+	padding: 0; 
+	margin-bottom: 12px; 
+    font-family: 'Raleway', sans-serif;
+	font-weight: 300;
+	font-size: 20px; 
+	line-height: 30px;
+	color: #666; 
+	margin-top: 10px; 
+}
+
+html,
+body {
+	height: 100%;
+}
+.header-mia {
+    text-align: center;
+    background-image: url(../../assets/img/header.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 228px 0;
+   
+}
+.header-mia h1 {
+    font-size: 80px;
+    color: #fff;
+    
+ }
+ .header-mia span{
+    color: #fff;
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+ .divisor {
+    border-top: 4px #fff solid;
+    width: 93px;
+    margin: 21px auto 17px;
+}
+
+.uno{
+    text-align: center;
+    padding: 10px 0;
+    font-size: 20px;
+
+}
+.articulos p{
+	font-style: italic;
+	font-size: 15px;
+}
+
+.header-mia-2{
+	text-align: center;
+	background-color: #F8F8F8;
+    padding-top: 36px;
+    padding-top: 132px
+}
+
+.header-mia-2 p{
+    font-size: 15px;
+}
+.articulos img{
+	border-radius: 65px;
+    width: 64px;
+    float: left;
+    margin-right: 68px;
+    margin-bottom: 58px;
+}
+footer{
+	background-color: #2F2F2F;
+    color: #fff;
+
+}
+section.uno{
+
+    padding-top:98px;
+}
+
+section.header-mia-3{
+    padding-top: 319px;
+}
+button.boton-1{
+
+    border:5px solid;
+}
+
+span.medio{
+    font-weight: bold;
+    font-size: 18px;
+    border: 2px solid;
+    text-align: center;
+    display: inline;
+    padding: 10px 40px;
+}
+
+i{
+    color: #DA4E02;
+}
+h5{
+    letter-spacing: 1px;
+}
+footer span.medio{
+    color: #fff;
+    border: 2px solid #fff;
+}
+.articulos{
+	padding: 80px 0;
+}
+.medio{
+	display: inline-block;
+	margin-bottom: 30px;
+}
