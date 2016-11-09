@@ -8,6 +8,7 @@
     font-family: 'Raleway', sans-serif;
     font-size: 19px;
 } 
+
 body { 
 	background: #fff; 
 	margin: 0; 
@@ -35,20 +36,23 @@ html,
 body {
 	height: 100%;
 }
+
 .header-mia {
     text-align: center;
     background-image: url(../../assets/img/header.png);
     background-size: cover;
     background-repeat: no-repeat;
-    padding: 228px 0;
-   
+    padding: 228px 0; 
 }
+
 .header-mia h1 {
     font-size: 80px;
     color: #fff;
     
  }
+
  .header-mia span{
+
     color: #fff;
     font-size: 22px;
     letter-spacing: 1px;
@@ -87,11 +91,14 @@ body {
     margin-right: 68px;
     margin-bottom: 58px;
 }
+
 footer{
+
 	background-color: #2F2F2F;
     color: #fff;
 
 }
+
 section.uno{
 
     padding-top:98px;
@@ -117,17 +124,24 @@ span.medio{
 i{
     color: #DA4E02;
 }
+
 h5{
     letter-spacing: 1px;
 }
+
 footer span.medio{
+
     color: #fff;
     border: 2px solid #fff;
 }
+
 .articulos{
+
 	padding: 80px 0;
 }
+
 .medio{
+
 	display: inline-block;
 	margin-bottom: 30px;
 }
