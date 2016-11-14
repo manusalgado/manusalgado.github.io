@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>juego</title>
+    <script src="js/phaser.js"></script>
+  
+  </head>
+  <body>
+  <script>
+    var plataformas;
+    var enpanadas;
+    var player;
+    var controles;
+    var score = 0;
+    var textoScore;
+    var game = new Phaser.Game(1200, 600, Phaser.CANVAS, 'zonajuego', {preload: preload, create: create, update: update});
+
+function preload(){
+  //aqui se cargan los sprites 'imagenes' del juego
+  game.load.image('fondo', 'imagenes/5.jpg');
+  game.load.image('enpanada', 'imagenes/4.png');
+  game.load.image('barra', 'imagenes/1.png');
+  game.load.spritesheet('player','imagenes/6.png', 189, 368);
+
+}
+function create(){
+  //agrear fisica
+  game.physics.startSystem(Phaser.Physics.ARCADE);
+
+  //aqui se agrega el fondo
+  game.add.sprite(0, 0, 'fondo');
+  plataformas = game.add.group();
+  plataformas.enableBody = true;
+  var piso = plataformas.create(0, game.world.height - 100 , 'barra');
+    piso.scale.setTo(1.7, 1.7);
+    piso.body.immovable = true;
+
+
+  //game.add.sprite(0, 0, 'enpanada');
+  player = game.add.sprite(32, game.world.height-50, 'player');
+  player.scale.setTo(0.5,0.5);
+  player.frame = 4;
+  game.physics.arcade.enable(player);
+  player.body.bounce.y = 0.3;
+  player.body.gravity.y = 300;
+  player.body.collideWorldBounds = true;
+
+  
+
+  player.animations.add('izquierda', [0,1,2], 2, true);
+  player.animations.add('derecha', [4,5,3], 2, true);
+
+
+
+
+  enpanadas = game.add.group();
+  enpanadas.enableBody = true;
+  enpanadas.scale.setTo(0.3,0.3);
+  //enpanadas.physicsBodyType = Phaser.Physics.ARCADE;
+
+  for (var i = 0; i < 10; i++) {
+    var enpanada = enpanadas.create(100 + i * 100, 50, 'enpanada');
+
+    //agregar fisica
+    enpanada.body.collideWorldBounds = true;
+    enpanada.body.gravity.x = game.rnd.integerInRange(-50, 50);
+    enpanada.body.gravity.y = 100 + Math.random() *100;
+    enpanada.body.bounce.setTo(0.5);
+  }
+
+  textoScore = game.add.text(20, 20, 'Marcador: 0', {fontSize: '36px', fill: '#fff'});
+
+  controles = game.input.keyboard.createCursorKeys();
+}
+function update(){
+  //game.physics.arcade.collide(enpanadas, plataformas);
+   //game.physics.arcade.collide(player, plataformas);
+   game.physics.arcade.overlap(player, enpanadas, recolectar, null, this);
+
+
+   player.body.velocity.x = 0;
+
+   if (controles.left.isDown) {
+
+    player.body.velocity.x = -150;
+    player.animations.play('izquierda');
+   }else
+
+   if (controles.right.isDown) {
+
+    player.body.velocity.x = 150;
+    player.animations.play('derecha');
+   }else
+   {
+    player.animations.stop();
+    player.frame = 4;
+   }
+
+   if (controles.up.isDown) {
+    player.body.velocity.y = -350;
+   }
+
+   function recolectar(player, enpanadas){
+
+    enpanadas.kill();
+
+    score += 10;
+    textoScore.text = 'Marcador ' + score;
+   }
+}
+  </script>
+  </body>
+</html>
