@@ -1,0 +1,13 @@
+body {
+  background: url(back.jpg);
+  background-position: center;
+  background-attachment: contain;
+  background-size: cover;
+}
+.texts {
+  color: #ffffff;
+  font-size: 2em;
+}
+#two {
+  display: none;
+}
