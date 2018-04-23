@@ -55,52 +55,51 @@ class TareasApp extends React.Component {
     );
   }
 }
-class Header extends React.Component {
-  render(){
-    return (
-      <div>
-        <h1>{this.props.title}</h1>
-        <h2>{this.props.subtitle}</h2>
-      </div>
-    );
-  }
+
+const Header = (props) => {
+  return (
+    <div>
+      <h1>{props.title}</h1>
+      <h2>{props.subtitle}</h2>
+    </div>
+  );
 }
-class Action extends React.Component {
-  render(){
+
+
+const Action = (props) => {
     return (
       <div>
         <button
-          onClick={this.props.handlePick}
-          disabled={!this.props.hasOptions}
+          onClick={props.handlePick}
+          disabled={!props.hasOptions}
           >
           ¿Que es mas importante?
         </button>
       </div>
-    );
-  }
+  );
 }
-class Tareas extends React.Component {
 
-  render(){
-    return (
-      <div>
-        <button onClick={this.props.handleDeleteOptions}>Quitar todas</button>
-        {
-          this.props.options.map( (option) => <Tarea key={option} optionText={option}/>)
-        }
-      </div>
-    );
-  }
+
+const Tareas = (props) => {
+  return (
+    <div>
+      <button onClick={props.handleDeleteOptions}>Quitar todas</button>
+      {
+        props.options.map( (option) => <Tarea key={option} optionText={option}/>)
+      }
+    </div>
+  );
 }
-class Tarea extends React.Component {
-  render(){
-    return (
-      <div>
-        {this.props.optionText}
-      </div>
-    );
-  }
+
+
+const Tarea = (props) => {
+  return (
+    <div>
+      {props.optionText}
+    </div>
+  );
 }
+
 class AgregarTareas extends React.Component {
   constructor(props){
     super(props);
