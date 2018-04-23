@@ -1,57 +1,134 @@
-console.log('App.js is running!');
 
-const app = {
-  title: 'Cambios Pendientes App',
-  subtitle: 'Ingresa las nuevas tareas',
-  options: []
-};
-
-const onFormSubmit = (e) => {
-  e.preventDefault();
-
-  const option = e.target.elements.option.value;
-
-  if (option) {
-    app.options.push(option);
-    e.target.elements.option.value = '';
-    render();
+class TareasApp extends React.Component {
+  constructor(props){
+    super(props);
+    this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
+    this.handlePick = this.handlePick.bind(this);
+    this.handleAddOption = this.handleAddOption.bind(this);
+    this.state = {
+      options: []
+    };
   }
-};
+  handleDeleteOptions(){
+    this.setState( () => {
+      return {
+        options: []
+      };
+    });
+  }
+  handlePick(){
+    const randomNum = Math.floor(Math.random() * this.state.options.length);
+    const option = this.state.options[randomNum];
+    alert(option);
+  }
+  handleAddOption(option){
+    if (!option) {
+      return 'Ingrese un valor correcto';
+    }else if (this.state.options.indexOf(option) > -1) {
+      return 'Esta tarea ya existe';
+    }
+    this.setState((prevState) => {
+      return {
+        options: prevState.options.concat(option)
+      };
+    });
+  }
+  render(){
+    const title = "Tareas App";
+    const subtitle = "Ingresa las nuevas tareas";
 
-const onRemoveAll = () => {
-  app.options = [];
-  render();
-};
+    return (
+      <div>
+        <Header title={title} subtitle={subtitle}/>
+        <Action
+          hasOptions={this.state.options.length > 0}
+          handlePick={this.handlePick}
+        />
+        <Tareas
+          options={this.state.options}
+          handleDeleteOptions={this.handleDeleteOptions}
+        />
+        <AgregarTareas
+          handleAddOption={this.handleAddOption}
+         />
+      </div>
+    );
+  }
+}
+class Header extends React.Component {
+  render(){
+    return (
+      <div>
+        <h1>{this.props.title}</h1>
+        <h2>{this.props.subtitle}</h2>
+      </div>
+    );
+  }
+}
+class Action extends React.Component {
+  render(){
+    return (
+      <div>
+        <button
+          onClick={this.props.handlePick}
+          disabled={!this.props.hasOptions}
+          >
+          ¿Que es mas importante?
+        </button>
+      </div>
+    );
+  }
+}
+class Tareas extends React.Component {
 
-const onMakeDecision = () => {
-  const randomNum = Math.floor(Math.random() * app.options.length);
-  const option = app.options[randomNum];
-  alert(option);
-};
-
-const appRoot = document.getElementById('app');
-
-const render = () => {
-  const template = (
-    <div>
-      <h1>{app.title}</h1>
-      {app.subtitle && <p>{app.subtitle}</p>}
-      <p>{app.options.length > 0 ? 'Tus pendientes' : 'Ningun pendiente'}</p>
-        <button disabled={app.options.length === 0} onClick={onMakeDecision}>¿Que es lo mas importante?</button>
-      <button onClick={onRemoveAll}>Remove All</button>
-      <ol>
+  render(){
+    return (
+      <div>
+        <button onClick={this.props.handleDeleteOptions}>Quitar todas</button>
         {
-          app.options.map((option) => <li key={option}>{option}</li>)
+          this.props.options.map( (option) => <Tarea key={option} optionText={option}/>)
         }
-      </ol>
-      <form onSubmit={onFormSubmit}>
-        <input type="text" name="option" />
-        <button>Add Option</button>
-      </form>
-    </div>
-  );
+      </div>
+    );
+  }
+}
+class Tarea extends React.Component {
+  render(){
+    return (
+      <div>
+        {this.props.optionText}
+      </div>
+    );
+  }
+}
+class AgregarTareas extends React.Component {
+  constructor(props){
+    super(props);
+    this.handleAddOption = this.handleAddOption.bind(this);
+    this.state = {
+      error: undefined
+    };
+  }
+  handleAddOption(e){
+    e.preventDefault();
+    const option = e.target.elements.option.value.trim();
+    const error = this.props.handleAddOption(option);
+    this.setState(() => {
+      return { error };
+    });
 
-  ReactDOM.render(template, appRoot);
-};
+  }
+  render(){
+    return (
+      <div>
+        {this.state.error && <p>{this.state.error}</p>}
+        <form onSubmit={this.handleAddOption}>
+          <input type="text" name="option" />
+          <button>Add Option</button>
+        </form>
+      </div>
+    );
+  }
+}
 
-render();
+ReactDOM.render(<TareasApp />, document.getElementById('app'));
