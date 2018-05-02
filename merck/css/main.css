@@ -97,9 +97,20 @@ textarea {
    Author's custom styles
    ========================================================================== */
 /* General */
+
 * {
-    
+    font-family: 'Montserrat', sans-serif;
 }
+
+@font-face {
+    font-family: 'Sansation';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Sansation'), url('../Sansation/Sansation.otf') format('woff');
+    }
+    * {
+        font-family: 'Sansation' sans-serif;
+    }
 
 /* Navbar */
 
@@ -111,20 +122,18 @@ div.logo a img {
     padding-top: 15px;
     margin-left: 45px;
 }
-div ul {
+div#navbarNav ul {
     margin-left: auto;
 }
-    div ul li {
-        
-    }
-    div ul li a {
+    div#navbarNav ul li a {
         border-right: 1px solid black;
         padding: 5px;
-        margin-left: 20px;
+        margin-left: 15px;
         margin-right: 15px;
         text-decoration: none;
+        font-weight: bold;
     }
-    div ul li:last-child a {
+    div#navbarNav ul li:last-child a {
         border: none;
     }
 div.searcher {
@@ -153,6 +162,44 @@ section div.main-tag {
         -webkit-filter: grayscale(0);
         -webkit-transform: scale(1.1);
     }
+
+/* Tag nav */
+
+.menu-tab {
+    margin-top: 100px;
+}
+section div.tag-nav ul {
+    margin: 0 auto;
+}
+div.tag-nav ul li {
+    background-color: gainsboro;
+    border-radius: 30px;
+    width: 30px;
+    height: 30px;
+    margin: 40px;
+}
+div.tag-nav ul li h4 {
+    margin-top: 20px;
+    font-size: 17px;
+    font-weight: normal;
+}
+div.tag-nav span.barra {
+    position: relative;
+    z-index: -1;
+    width: 100%;
+    height: 5px;
+    background-color: rgb(210, 204, 204);
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    margin-top: -73px;
+}
+
+/* Entradas */
+section.section-entradas {
+    background-color: rgb(210, 204, 204);
+    padding: 20px 50px 20px 50px;
+}
 
 /* Footer */
 
@@ -207,7 +254,82 @@ footer {
         font-size: 30px;
     }
 
+    .social-header{
+        border-right: none;
+      }
+        .social-header a {
+          color: #fff;
+        }
+        .social-header a .fa-inverse {
+            color: #868383;
+        }
+        .social-header a .fa-inverse:hover {
+            color: #4512d1;
+        }
+        
+input::placeholder {
+    color: white;
+    padding-left: 10px;
+}
 
+/* Internas */
+
+.interna-body {
+    background-color: #eeeeee;
+}
+ div div.patrocinador {
+     padding-top: 90px;
+     background-color: #eeeeee;
+ }
+section.interna-body div p {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    display: block;
+} 
+.carousel-interna {
+    padding: 50px;
+}
+div a.arrow-carousel-left {
+    left: -100px;
+}
+div a.arrow-carousel-right {
+    right: -100px;
+}
+div div.main-date {
+    background-color: black;
+    color: white;
+    width: 30%;
+    /* position: absolute; */
+    z-index: 1;
+    margin-top: -65px;
+}
+div div.main-date p {
+    font-size: 25px;
+    margin: 0;
+    text-align: center;
+}
+    div div.main-date p:nth-child(1) {
+        font-size: 35px;
+    }
+div div h5 {
+    margin-top: 30px;
+}
+
+
+div.marcas div {
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+/* Helpers */
+
+.gris-oscuro {
+    background-color: gray!important;
+    border-radius: 30px!important;
+    width: 30px!important;
+    height: 30px!important;
+    margin: 40px!important;
+}
 
 
 

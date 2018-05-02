@@ -10,10 +10,13 @@
         <link rel="manifest" href="site.webmanifest">
         <link rel="apple-touch-icon" href="icon.png">
         <!-- Place favicon.ico in the root directory -->
-        <!-- normalize - bootstrap - main style -->
+        <!-- normalize - bootstrap - main style google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/main.css">
+         <!-- font awesome -->
+        <script src="https://use.fontawesome.com/542d15e425.js"></script>
     </head>
     <body>
         <!--[if lte IE 9]>
@@ -41,13 +44,13 @@
                                     <li class="nav-item active">
                                         <a class="nav-link" href="#">Quiero ser un <b>PetiDoctor</b></a>
                                     </li>
-                                    <li class="nav-item">
+                                    <li class="nav-item active">
                                         <a class="nav-link" href="#">Registratse</a>
                                     </li>
-                                    <li class="nav-item">
+                                    <li class="nav-item active">
                                         <a class="nav-link" href="#">Inicia Sesión</a>
                                     </li>
-                                    <li class="nav-item">
+                                    <li class="nav-item active">
                                         <a class="nav-link" href="#">Menú</a>
                                     </li>
                                 </ul>
@@ -56,6 +59,7 @@
                     </div>
                 </div>
                 <section class="row">
+                    <!-- Buscador -->
                     <div class="col-md-12 searcher">
                         <h2>Buscador</h2>
                     </div>
@@ -67,10 +71,76 @@
                         <a href="#"><img src="img/gato.png" alt="Gato" width="190"></a>
                     </div>
                 </section>
-                <div class="row">
-                    <h3>Entradas blog</h3>
+                <!-- Tag nav -->
+                <section>
+                    <div class="row menu-tab tag-nav">
+                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                            <li class="nav-item-1">
+                                <a class="nav-link tag-cachorro-1" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"></a>
+                                <!--<h4>Cachorro</h4>-->
+                            </li>
+                            <li class="nav-item-2">
+                                <a class="nav-link tag-cachorro-2" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false"></a>
+                                <!--<h4>Adulto</h4>-->
+                            </li>
+                            <li class="nav-item-3">
+                                <a class="nav-link tag-cachorro-3" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false"></a>
+                                <!--<h4>Senior</h4>-->
+                            </li>
+                        </ul>
+                        <span class="barra"></span>
+                    </div>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">Cachorro</div>
+                        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">Adulto</div>
+                        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">Senior</div>
+                    </div>
+                </section>
+            </div>
+        </header>
+        <section class="container section-entradas">
+            <div class="row">
+                <div class="card col-md-8" style="width: 50rem;">
+                    <div class="card-body" id="titulo-solicitado">
+                        <h4>LOREM IPSUM</h4>
+                        <p class="card-text">Lorem ipsum adipiscing</p>
+                    </div>
+                    <a href="#"><img class="card-img-top" src="img/gato-1.jpg" alt="Card image cap"></a>
                 </div>
-                <footer class="row">
+                <div class="card col-md-4" style="width: 16rem; height: 30rem;">
+                    <div class="card-body">
+                        <h4>LOREM IPSUM</h4>
+                        <p class="card-text">Lorem ipsum adipiscing</p>
+                    </div>
+                    <a href="#"><img class="card-img-top" src="img/perro-1.jpg" alt="Card image cap"></a>
+                </div>
+                <div class="card col-md-4" style="width: 16rem;">
+                    <div class="card-body">
+                        <h4>LOREM IPSUM</h4>
+                        <p class="card-text">Lorem ipsum adipiscing</p>
+                    </div>
+                    <a href="#"><img class="card-img-top" src="img/gato-1.jpg" alt="Card image cap"></a>
+                </div>
+                <div class="card col-md-4" style="width: 16rem;">
+                    <div class="card-body">
+                        <h4>LOREM IPSUM</h4>
+                        <p class="card-text">Lorem ipsum adipiscing</p>
+                    </div>
+                    <a href="#"><img class="card-img-top" src="img/perro-1.jpg" alt="Card image cap"></a>
+                </div>
+                <div class="card col-md-4" style="width: 16rem;">
+                    <div class="card-body">
+                        <h4>LOREM IPSUM</h4>
+                        <p class="card-text">Lorem ipsum adipiscing</p>
+                    </div>
+                    <a href="#"><img class="card-img-top" src="img/gato-1.jpg" alt="Card image cap"></a>
+                </div>
+            </div>
+        </section>
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="row">
                     <div class="col-md-4">
                         <img src="img/logo-2.png" alt="Logo-2">
                         <img src="img/msd.png" alt="MSD">
@@ -86,15 +156,36 @@
                         <p>(57) 000 00 00</p>
                         <p>contactenos@petify.com</p>
                         <p>Bogotá, Colombia</p>
-                        <ul>
-                            <li>Facebook</li>
-                            <li>Instagram</li>
-                            <li>Twitter</li>
+                        <ul class="social-header list-inline">
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse" aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-instagram fa-stack-1x fa-inverse" aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse" aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
-                </footer>
+                </div>
             </div>
-        </header>
+        </footer>
         <!-- mdernizr - jquery - bootstrap - main script -->
         <script src="js/vendor/modernizr-3.5.0.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
