@@ -24,7 +24,7 @@
 
         <!-- Header -->
         <header>
-            <div class="container">
+            <div class="">
                 <div class="row">
                     <div class="col-md-5 logo">
                         <!-- Logo -->
@@ -65,10 +65,10 @@
                 </section>
             </div>
         </header>
-        <section class="container interna-body">
+        <section class="interna-body">
             <div class="row">
                 <div class="card col-md-8" style="width: 50rem;">
-                    <div class="card-body" id="titulo-solicitado">
+                    <div class="card-body" >
                         <h4>LOREM IPSUM</h4>
                         <p class="card-text">Lorem ipsum adipiscing</p>
                     </div>
@@ -82,170 +82,179 @@
                           consectetur, adipisicing elit. Hic praesentium facere exercitationem, veniam dolorem voluptatum earum perferendis dolor .</p>
                     <div class="my-rating-6"></div>
                 </div>
-                <aside class="col-md-4">
+                <aside class="col-md-4 entradas-recientes">
                     <h3>Entradas recientes</h3>
+                    <ul id="recientes">
+                    </ul>
+                    <hr>
                     <h3>Mejores calificados</h3>
+                    <ul id="mejores-calificados">
+                    </ul>
                 </aside>
             </div>
             <!-- Carousel interna -->
             <div class="row carousel-interna">
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="card-group">
-                                <div class="card">
-                                    <img class="card-img-top" src="img/carousel-interna.png" alt="Card image cap">
-                                    <div class="card-body">
-                                        <div class="main-date">
-                                            <p>24</p>
-                                            <p>feb</p>
+                <div class="col-md-12">
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <div class="card-group">
+                                            <div class="card">
+                                                <img class="card-img-top" src="img/carousel-interna.png" alt="Card image cap">
+                                                <div class="card-body">
+                                                    <div class="main-date">
+                                                        <p>24</p>
+                                                        <p>feb</p>
+                                                    </div>
+                                                    <div class="random-title">
+            
+                                                    </div>
+                                                    <p class="card-text">This is a wider card with supporting text belontent is a little bit longer.</p>
+                                                    <a href="#" class="card-link">Leer Mas...</a>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <img class="card-img-top" src="img/carousel-interna.png" alt="Card image cap">
+                                                <div class="card-body">
+                                                    <div class="main-date">
+                                                        <p>24</p>
+                                                        <p>feb</p>
+                                                    </div>
+                                                    <h5 class="card-title">Lorem ipsum</h5>
+                                                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                                                    <a href="#" class="card-link">Leer Mas...</a>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <img class="card-img-top" src="img/carousel-interna.png" alt="Card image cap">
+                                                <div class="card-body">
+                                                    <div class="main-date">
+                                                        <p>24</p>
+                                                        <p>feb</p>
+                                                    </div>
+                                                    <h5 class="card-title">Lorem ipsum</h5>
+                                                    <p class="card-text">This is a card has even longer content than the first to show that equal height action.</p>
+                                                    <a href="#" class="card-link">Leer Mas...</a>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <h5 class="card-title">Lorem ipsum</h5>
-                                        <p class="card-text">This is a wider card with supporting text belontent is a little bit longer.</p>
-                                        <a href="#" class="card-link">Leer Mas...</a>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="card-group">
+                                            <div class="card">
+                                                <img class="card-img-top" src="img/carousel-interna.png" alt="Card image cap">
+                                                <div class="card-body">
+                                                    <div class="main-date">
+                                                        <p>24</p>
+                                                        <p>feb</p>
+                                                    </div>
+                                                    <h5 class="card-title">Lorem ipsum</h5>
+                                                    <p class="card-text">This is a wider card with supporting text belis content is a little bit longer.</p>
+                                                    <a href="#" class="card-link">Leer Mas...</a>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <img class="card-img-top" src="img/carousel-interna.png" alt="Card image cap">
+                                                <div class="card-body">
+                                                    <div class="main-date">
+                                                        <p>24</p>
+                                                        <p>feb</p>
+                                                    </div>
+                                                    <h5 class="card-title">Lorem ipsum</h5>
+                                                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                                                    <a href="#" class="card-link">Leer Mas...</a>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <img class="card-img-top" src="img/carousel-interna.png" alt="Card image cap">
+                                                <div class="card-body">
+                                                    <div class="main-date">
+                                                        <p>24</p>
+                                                        <p>feb</p>
+                                                    </div>
+                                                    <h5 class="card-title">Lorem ipsum</h5>
+                                                    <p class="card-text">This is a wider even longer content than the first to show that equal height action.</p>
+                                                    <a href="#" class="card-link">Leer Mas...</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="card-group">
+                                            <div class="card">
+                                                <img class="card-img-top" src="img/carousel-interna.png" alt="Card image cap">
+                                                <div class="card-body">
+                                                    <div class="main-date">
+                                                        <p>24</p>
+                                                        <p>feb</p>
+                                                    </div>
+                                                    <h5 class="card-title">Lorem ipsum</h5>
+                                                    <p class="card-text">This is a wider card with supporting text below as is a little bit longer.</p>
+                                                    <a href="#" class="card-link">Leer Mas...</a>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <img class="card-img-top" src="img/carousel-interna.png" alt="Card image cap">
+                                                <div class="card-body">
+                                                    <div class="main-date">
+                                                        <p>24</p>
+                                                        <p>feb</p>
+                                                    </div>
+                                                    <h5 class="card-title">Lorem ipsum</h5>
+                                                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                                                    <a href="#" class="card-link">Leer Mas...</a>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <img class="card-img-top" src="img/carousel-interna.png" alt="Card image cap">
+                                                <div class="card-body">
+                                                    <div class="main-date">
+                                                        <p>24</p>
+                                                        <p>feb</p>
+                                                    </div>
+                                                    <h5 class="card-title">Lorem ipsum</h5>
+                                                    <p class="card-text">This is a wider card with seven longer content than the first to show that equal height action.</p>
+                                                    <a href="#" class="card-link">Leer Mas...</a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="card">
-                                    <img class="card-img-top" src="img/carousel-interna.png" alt="Card image cap">
-                                    <div class="card-body">
-                                        <div class="main-date">
-                                            <p>24</p>
-                                            <p>feb</p>
-                                        </div>
-                                        <h5 class="card-title">Lorem ipsum</h5>
-                                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                                        <a href="#" class="card-link">Leer Mas...</a>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <img class="card-img-top" src="img/carousel-interna.png" alt="Card image cap">
-                                    <div class="card-body">
-                                        <div class="main-date">
-                                            <p>24</p>
-                                            <p>feb</p>
-                                        </div>
-                                        <h5 class="card-title">Lorem ipsum</h5>
-                                        <p class="card-text">This is a card has even longer content than the first to show that equal height action.</p>
-                                        <a href="#" class="card-link">Leer Mas...</a>
-                                    </div>
-                                </div>
+                                <a class="carousel-control-prev arrow-carousel-left" href="#carouselExampleControls" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next arrow-carousel-right" href="#carouselExampleControls" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
                             </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="card-group">
-                                <div class="card">
-                                    <img class="card-img-top" src="img/carousel-interna.png" alt="Card image cap">
-                                    <div class="card-body">
-                                        <div class="main-date">
-                                            <p>24</p>
-                                            <p>feb</p>
-                                        </div>
-                                        <h5 class="card-title">Lorem ipsum</h5>
-                                        <p class="card-text">This is a wider card with supporting text belis content is a little bit longer.</p>
-                                        <a href="#" class="card-link">Leer Mas...</a>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <img class="card-img-top" src="img/carousel-interna.png" alt="Card image cap">
-                                    <div class="card-body">
-                                        <div class="main-date">
-                                            <p>24</p>
-                                            <p>feb</p>
-                                        </div>
-                                        <h5 class="card-title">Lorem ipsum</h5>
-                                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                                        <a href="#" class="card-link">Leer Mas...</a>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <img class="card-img-top" src="img/carousel-interna.png" alt="Card image cap">
-                                    <div class="card-body">
-                                        <div class="main-date">
-                                            <p>24</p>
-                                            <p>feb</p>
-                                        </div>
-                                        <h5 class="card-title">Lorem ipsum</h5>
-                                        <p class="card-text">This is a wider even longer content than the first to show that equal height action.</p>
-                                        <a href="#" class="card-link">Leer Mas...</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="card-group">
-                                <div class="card">
-                                    <img class="card-img-top" src="img/carousel-interna.png" alt="Card image cap">
-                                    <div class="card-body">
-                                        <div class="main-date">
-                                            <p>24</p>
-                                            <p>feb</p>
-                                        </div>
-                                        <h5 class="card-title">Lorem ipsum</h5>
-                                        <p class="card-text">This is a wider card with supporting text below as is a little bit longer.</p>
-                                        <a href="#" class="card-link">Leer Mas...</a>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <img class="card-img-top" src="img/carousel-interna.png" alt="Card image cap">
-                                    <div class="card-body">
-                                        <div class="main-date">
-                                            <p>24</p>
-                                            <p>feb</p>
-                                        </div>
-                                        <h5 class="card-title">Lorem ipsum</h5>
-                                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                                        <a href="#" class="card-link">Leer Mas...</a>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <img class="card-img-top" src="img/carousel-interna.png" alt="Card image cap">
-                                    <div class="card-body">
-                                        <div class="main-date">
-                                            <p>24</p>
-                                            <p>feb</p>
-                                        </div>
-                                        <h5 class="card-title">Lorem ipsum</h5>
-                                        <p class="card-text">This is a wider card with seven longer content than the first to show that equal height action.</p>
-                                        <a href="#" class="card-link">Leer Mas...</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev arrow-carousel-left" href="#carouselExampleControls" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next arrow-carousel-right" href="#carouselExampleControls" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
                 </div>
             </div>
         </section>
-        <section class="container">
+        <section class="">
             <div class="row">
-                <div class="card col-md-4 patrocinador" style="width: 18rem;">
-                    <img class="card-img-top" src="img/patrocinador-3.png" alt="Patrocinador 1">
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
-                <div class="card col-md-4 patrocinador" style="width: 18rem;">
-                    <img class="card-img-top" src="img/patrocinador-2.png" alt="Patrocinador 2">
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
-                <div class="card col-md-4 patrocinador" style="width: 18rem;">
-                    <img class="card-img-top" src="img/patrocinador-3.png" alt="Patrocinador 3">
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="col-md-4 patrocinador" >
+                        <img class="img-fluid" src="img/patrocinador-3.png" alt="Patrocinador 1">
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                        </div>
+                        <div class="col-md-4 patrocinador" >
+                        <img class="img-fluid" src="img/patrocinador-2.png" alt="Patrocinador 2">
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                        </div>
+                        <div class="col-md-4 patrocinador" >
+                        <img class="img-fluid" src="img/patrocinador-3.png" alt="Patrocinador 3">
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="container">
+        <section class="">
             <div class="row marcas">
                 <div class="col-md-3">
                     <a href="#"><img src="img/bravecto.png" alt="bravecto"></a>
@@ -263,52 +272,52 @@
         </section>
         <!-- Footer -->
         <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <img src="img/logo-2.png" alt="Logo-2">
-                        <img src="img/msd.png" alt="MSD">
-                        <p>Consulte Terminos y Condiciones</p>
-                        <p>Politica de Privacidad</p>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="e-mail" class="label">¡Has parte de nuestra comunidad!</label>
-                        <input type="text" placeholder="Déjanos tu E-mail">
-                    </div>
-                    <div class="col-md-4">
-                        <h4>Contácto</h4>
-                        <p>(57) 000 00 00</p>
-                        <p>contactenos@petify.com</p>
-                        <p>Bogotá, Colombia</p>
-                        <ul class="social-header list-inline">
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-facebook fa-stack-1x fa-inverse" aria-hidden="true"></i>
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-instagram fa-stack-1x fa-inverse" aria-hidden="true"></i>
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-twitter fa-stack-1x fa-inverse" aria-hidden="true"></i>
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
+                <div class="">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="img/logo-2.png" alt="Logo-2">
+                            <img src="img/msd.png" alt="MSD">
+                            <p>Consulte Terminos y Condiciones</p>
+                            <p>Politica de Privacidad</p>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="e-mail" class="label">¡Has parte de nuestra comunidad!</label>
+                            <input type="text" placeholder="Déjanos tu E-mail">
+                        </div>
+                        <div class="col-md-3">
+                            <h4>Contácto</h4>
+                            <p>(57) 000 00 00</p>
+                            <p>contactenos@petify.com</p>
+                            <p>Bogotá, Colombia</p>
+                            <ul class="social-header list-inline">
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-facebook fa-stack-1x fa-inverse" aria-hidden="true"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-instagram fa-stack-1x fa-inverse" aria-hidden="true"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-twitter fa-stack-1x fa-inverse" aria-hidden="true"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
         </footer>
         <!-- mdernizr - jquery - bootstrap - main script -->
         <script src="js/vendor/modernizr-3.5.0.min.js"></script>
@@ -316,6 +325,7 @@
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/servicios.js"></script>
         <script src="js/main.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->

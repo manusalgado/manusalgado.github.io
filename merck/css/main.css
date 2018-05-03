@@ -178,11 +178,12 @@ div.tag-nav ul li {
     height: 30px;
     margin: 40px;
 }
-div.tag-nav ul li h4 {
-    margin-top: 20px;
-    font-size: 17px;
-    font-weight: normal;
-}
+    div.tag-nav ul li p {
+        position: absolute;
+        z-index: 1;
+        margin-top: 40px;
+        margin-left: -10px;
+    }
 div.tag-nav span.barra {
     position: relative;
     z-index: -1;
@@ -198,14 +199,44 @@ div.tag-nav span.barra {
 /* Entradas */
 section.section-entradas {
     background-color: rgb(210, 204, 204);
-    padding: 20px 50px 20px 50px;
+    padding: 20px 50px 20px 50px; 
+}
+#titulo-solicitado {
+    display: grid;
+}
+
+div.contenedor-de-items div:nth-child(1) {
+    
+}
+/*div.contenedor-de-items div:nth-child(2) {
+    width: 30%;
+    margin: 10px;
+}
+div.contenedor-de-items div:nth-child(3) {
+    width: 30%;
+    margin: 10px;
+    float: left;
+}
+div.contenedor-de-items div:nth-child(4) {
+    width: 30%;
+    margin: 10px;
+    float: left;
+}
+div.contenedor-de-items div:nth-child(5) {
+    width: 30%;
+    margin: 10px;
+
+}*/
+div.contenedor-de-items div:nth-child(6) {
+    
+    display: none;
 }
 
 /* Footer */
 
 footer {
     background-color: #868383;
-    padding: 30px;
+    padding: 70px;
 }
     footer div:nth-child(2){
         margin-top: 160px;
@@ -238,7 +269,7 @@ footer {
     }
     footer div label.label {
         color: #ffffff;
-        font-size: 1.3em;
+        font-size: 1.8em;
         
     }
     footer div input {
@@ -246,12 +277,14 @@ footer {
         color: white;
         border-color: #ffffff;
         text-decoration: none;
-        width: 95%;
+        width: 85%;
         height: 40px;
+        border: 1px solid white;
     }
     footer div h4 {
         color: #ffffff;
         font-size: 30px;
+        font-weight: bold;
     }
 
     .social-header{
@@ -269,7 +302,7 @@ footer {
         
 input::placeholder {
     color: white;
-    padding-left: 10px;
+    padding-left: 20px;
 }
 
 /* Internas */
@@ -316,10 +349,32 @@ div div h5 {
 }
 
 
-div.marcas div {
+div.marcas {
     margin-top: 70px;
     margin-bottom: 70px;
 }
+aside.entradas-recientes h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-left: 40px;
+}
+aside.entradas-recientes ul li {
+    list-style: none;
+}
+    aside.entradas-recientes ul li a {
+        text-decoration: underline;
+        color: #646161;
+        display: block;
+        margin-top: 30px;
+    }
+    aside.entradas-recientes ul li a:hover {
+        text-decoration: underline;
+        color: black;
+        font-weight: bold;
+        display: block;
+        margin-top: 30px;
+    }
 
 /* Helpers */
 
