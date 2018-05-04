@@ -72,48 +72,5 @@ $(document).ready(function(){
     });
 
     // perro 2 gato 1 cachorro 1 adulto 2 senior 3
-
-    //Random
-    /*$.ajax({
-        url: url + "api/Blog/RandomBlogs",
-        type: 'GET',
-        dataType: 'json',
-        success: function (response) {
-            response.forEach(function(post){
-                let html = '<h5 class="card-title">'+post.titulo+'</h5>'; 
-                $('.random-title').append(html);
-            });
-            console.log(response);
-        }
-    });*/
-
-    
     
 });
-
-
-
-/*yo lo haria poniendole estilos asi
-Como
-.contenedor-de-items .item:nth-child(1) {   }
-esos los del div grande
-el primero
-le pongo ancho 70%
-al segundo esto
-.contenedor-de-items .item:nth-child(2) { width: 30%;   }
-El tercero que seria el de abajo a la izquierda
-.contenedor-de-items .item:nth-child(3) { width: 30%;   }
-el 4 tambien
-.contenedor-de-items .item:nth-child(4) { width: 35%;   }
-a no a los dos de abano 35%
-y luego al ultimo que seria el 5to
-.contenedor-de-items .item:nth-child(5) { width: 30%;   }
-mejor dicho...
-.contenedor-de-items .item:nth-child(3) { width: 30%;   }
-
-.contenedor-de-items .item:nth-child(3) { width: 30%;   }   
-espera se me fue*/
-
-/*
-    // Extra small devices (portrait phones, less than 576px) @media (max-width: 575.98px) { ... }
-*/
