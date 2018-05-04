@@ -314,11 +314,20 @@ input::placeholder {
      padding-top: 90px;
      background-color: #eeeeee;
  }
-section.interna-body div p {
-    margin-top: 20px;
-    margin-bottom: 40px;
-    display: block;
+section.interna-body div {
+   padding: 40px;
 } 
+    section.interna-body div div {
+        margin-top: 10px;
+    } 
+        section.interna-body div p {
+            margin-top: 20px;
+            margin-bottom: 40px;
+            display: block;
+        } 
+
+/* Carousel interna */
+
 .carousel-interna {
     padding: 50px;
 }
@@ -329,20 +338,19 @@ div a.arrow-carousel-right {
     right: -100px;
 }
 div div.main-date {
-    background-color: black;
+    background-color: gray;
     color: white;
-    width: 30%;
-    /* position: absolute; */
+    width: 20%;
     z-index: 1;
     margin-top: -65px;
 }
 div div.main-date p {
-    font-size: 25px;
+    font-size: 20px;
     margin: 0;
     text-align: center;
 }
     div div.main-date p:nth-child(1) {
-        font-size: 35px;
+        font-size: 30px;
     }
 div div h5 {
     margin-top: 30px;
@@ -375,6 +383,62 @@ aside.entradas-recientes ul li {
         display: block;
         margin-top: 30px;
     }
+
+    /* Modal */
+
+div div div div.main-modal {
+    border-radius: 18px;
+    width: 95%;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+} 
+    div div div div.main-modal h4 {
+        color: gray;
+        font-size: 1.3em;
+    
+    }
+.left-modal-img {
+    width: 14%;
+    position: absolute;
+    display: block;
+    left: -8%;
+    top: 18%;
+} 
+div div input.modal-input {
+    box-shadow: -4px -4px 0px 1px #eeeeee;
+    height: 55px;
+    padding-left: 50px;
+}
+    div div i.main-modal-icon {
+        position: absolute;
+        margin-top: 12px;
+        margin-left: 12px;
+        font-size: 25px;
+        color: gray;
+        border-right: 1.5px solid rgb(194, 191, 191);
+        padding-right: 10px;
+    }
+    div div input.modal-input::placeholder {
+        font-style: italic;
+        color: #bab0b0;
+        padding-left: 10px;
+    }
+div button.btn-modal {
+    background-color: rgb(155, 152, 152);
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    padding-left: 30px;
+    padding-right: 30px;
+} 
+div div div div.main-modal-header {
+    border-bottom: none;
+} 
+div div div div.main-modal-btn {
+    border-top: none;
+}       
 
 /* Helpers */
 
