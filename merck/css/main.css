@@ -121,20 +121,28 @@ div.logo a img {
     display: block;
     padding-top: 15px;
     margin-left: 45px;
+    margin-top: -12px;
 }
-div#navbarNav ul {
-    margin-left: auto;
+div nav ul.main-nav {
+    margin-top: 43px;
 }
-    div#navbarNav ul li a {
-        border-right: 1px solid black;
-        padding: 5px;
-        margin-left: 15px;
-        margin-right: 15px;
-        text-decoration: none;
-        font-weight: bold;
+    div nav ul.main-nav li {
+        padding: 0 15px 0 15px;
+        font-size: 20px;
+        border-right: 2px solid black;
+        height: 35px;
     }
-    div#navbarNav ul li:last-child a {
-        border: none;
+    div nav ul.main-nav li:nth-child(4) {
+        border-right: none;
+    }
+    div nav ul.main-nav li a {
+        color: black;
+    }
+    div nav ul.main-nav li a:hover {
+        color: gray;
+    }
+    div nav ul.main-nav li b {
+        font-weight: bold;
     }
 div.searcher {
     height: 70px;
@@ -145,28 +153,21 @@ div.searcher {
     }
 div section:last-child {
         height: 150px;
-}    
-section div.main-tag {
+} 
+section.main-tag {
+    margin-top: 35px;
+}
+.tag-perro {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 35px;
 }
-    section div.main-tag a img {
-        -webkit-filter: grayscale(1);
-        -webkit-transition: all .3s ease-in-out;
-        max-width: 100%;
-          height: auto;
-    }
-    section div.main-tag a img:hover {
-        -webkit-filter: grayscale(0);
-        -webkit-transform: scale(1.1);
-    }
 
 /* Tag nav */
 
 .menu-tab {
-    margin-top: 100px;
+    margin-top: 25px;
 }
 section div.tag-nav ul {
     margin: 0 auto;
@@ -188,12 +189,12 @@ div.tag-nav span.barra {
     position: relative;
     z-index: -1;
     width: 100%;
-    height: 5px;
+    height: 10px;
     background-color: rgb(210, 204, 204);
     margin: 0 auto;
     display: block;
     text-align: center;
-    margin-top: -73px;
+    margin-top: -75px;
 }
 
 /* Entradas */
@@ -330,12 +331,18 @@ section.interna-body div {
 
 .carousel-interna {
     padding: 50px;
+    background-color: #eeeeee;
 }
 div a.arrow-carousel-left {
     left: -100px;
 }
 div a.arrow-carousel-right {
     right: -100px;
+}
+div div.slide-card {
+    padding: 10px;
+    border: none;
+    background-color: #eeeeee;
 }
 div div.main-date {
     background-color: gray;
@@ -438,6 +445,10 @@ div div div div.main-modal-header {
 } 
 div div div div.main-modal-btn {
     border-top: none;
+}
+.btn-fb {
+    margin-left: auto;
+    margin-right: auto;
 }       
 
 /* Helpers */

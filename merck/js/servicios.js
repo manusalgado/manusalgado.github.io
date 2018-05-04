@@ -71,6 +71,9 @@ $(document).ready(function(){
         }
     });
 
+    // url's
+    //http://26b16a8c.ngrok.io/Home/Api
+
     // perro 2 gato 1 cachorro 1 adulto 2 senior 3
     
 });
