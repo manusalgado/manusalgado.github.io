@@ -14,6 +14,7 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/animate.css">
         <link rel="stylesheet" href="css/main.css">
          <!-- font awesome -->
         <script src="https://use.fontawesome.com/542d15e425.js"></script>
@@ -47,10 +48,56 @@
                                   <a class="nav-link" href="#">Inicia Sesión</a>
                                 </li>
                                 <li class="nav-item">
-                                  <a class="nav-link" href="#">Menú</a>
+                                  <a class="nav-link" href="#"><span style="font-size: 20px;cursor:pointer;margin-right: 15px;" id="openNav">&#9776;</span>Menú</a>
                                 </li>
                               </ul>
                         </nav>
+                    </div>
+                </div>
+                <!-- Menu desplegable -->
+                <div id="myNav" class="overlay">
+                    <a href="javascript:void(0)" class="closebtn" id="closeNav">&times;</a>
+                    <div class="overlay-content">
+                        <a href="#">
+                        <div class="row main-content-desp">
+                            <div class="col-md-3">
+                                <img src="img/icon/carnet icon BLANCO.svg" alt="Carnet">
+                            </div>
+                            <div class="col-md-9">
+                                <p>Carnet oficial de mascotas saludables</p>
+                            </div>
+                        </div>
+                        </a>
+                        <a href="#">
+                            <div class="row main-content-desp">
+                                <div class="col-md-3">
+                                    <img src="img/icon/Calendar icon BLANCO.svg" alt="Clendar">
+                                </div>
+                                <div class="col-md-9">
+                                    <p>Enterate sobre eventos y promociones</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="row main-content-desp">
+                                <div class="col-md-3">
+                                    <img src="img/icon/24Hrs icon BLANCO.svg" alt="24 horas">
+                                </div>
+                                <div class="col-md-9">
+                                    <p>Directorio de veterinarias y pet shops</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="row main-content-desp">
+                                <div class="col-md-3">
+                                    <img src="img/icon/Pets new - BLANCO.svg" alt="news">
+                                </div>
+                                <div class="col-md-9">
+                                    <p>Esto te puede interesar</p>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 <section class="row">
@@ -72,35 +119,87 @@
                         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                             <li class="nav-item-1">
                                 <p class="p-cachorro">Cachorro</p>
-                                <a class="nav-link tag-cachorro-1" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"></a>
+                                <a class="nav-link tag-cachorro-1 animate-grid" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"></a>
                             </li>
                             <li class="nav-item-2">
                                 <p class="p-adulto">Adulto</p>
-                                <a class="nav-link tag-cachorro-2" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false"></a>
+                                <a class="nav-link tag-cachorro-2 animate-grid" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false"></a>
                                 <!--<h4>Adulto</h4>-->
                             </li>
                             <li class="nav-item-3">
                                 <p class="p-senior">Senior</p>
-                                <a class="nav-link tag-cachorro-3" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false"></a>
+                                <a class="nav-link tag-cachorro-3 animate-grid" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false"></a>
                                 <!--<h4>Senior</h4>-->
                             </li>
                         </ul>
                         <span class="barra"></span>
                     </div>
-                    <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">Cachorro</div>
-                        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">Adulto</div>
-                        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">Senior</div>
-                    </div>
                 </section>
             </div>
         </header>
         <section class="section-entradas">
-            <div class="row">
-                <div class="">
-                    <div id="titulo-solicitado" class="contenedor-de-items clearfix">
+            <!-- Entradas vista principal -->
+            <div class="main-entradas">
+                    <div class="row">
+                        <div class="col-md-8">
+                                <div class="card bg-dark text-white">
+                                        <img class="card-img" src="img/perro-1.jpg" alt="Card image">
+                                        <div class="card-img-overlay">
+                                          <h5 class="card-title">Card title</h5>
+                                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                          <p class="card-text">Last updated 3 mins ago</p>
+                                        </div>
+                                      </div>
+                        </div>
+                        <div class="col-md-4">
+                                <div class="card side-entrada">
+                                        <img class="card-img-top" src="img/perro-1.jpg" alt="Card image cap">
+                                        <div class="card-body">
+                                          <h5 class="card-title">Card title</h5>
+                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                          
+                                        </div>
+                                      </div>
+                        </div>
                     </div>
-                </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                                        <div class="card">
+                                          <div class="card-body">
+                                              <div class="row">
+                                                  <div class="col-md-4">
+                                                    <img src="img/perro-1.jpg" alt="" class="img-fluid">
+                                                  </div>
+                                                  <div class="col-md-8">
+                                                        <h5 class="card-title">Special title treatment</h5>
+                                                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                        </div>
+                                            <div class="card">
+                                                    <div class="card-body">
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                  <img src="img/perro-1.jpg" alt="" class="img-fluid">
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                      <h5 class="card-title">Special title treatment</h5>
+                                                                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                            </div>
+                        </div>
+                        <div class="col-md-4">
+                                <div class="card">
+                                        <img class="card-img-top" src="img/perro-1.jpg" alt="Card image cap">
+                                        <div class="card-body">
+                                          <h5 class="card-title">Card title</h5>
+                                        </div>
+                                      </div>
+                        </div>
+                    </div>  
             </div>
         </section>
         <!-- Footer -->

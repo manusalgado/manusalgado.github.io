@@ -1,5 +1,21 @@
 $(document).ready(function(){
-    console.log('probando jquery');
+
+    // Menu desplegable
+
+    // Abrir menú
+    $('#openNav').on('click', function(){
+        $('#myNav').css('width', '100%');
+    });
+
+    // Cerrar menú
+    $('#closeNav').on('click', function(){
+        $('#myNav').css('width', '0%');
+    });
+
+    $('.animate-grid').click(function(e){
+        e.preventDefault();
+        $('.main-entradas').addClass('animated fadeInUp');
+    });
 
     // Estilos del Tag menú
     $(".tag-cachorro-1").click(function(e){

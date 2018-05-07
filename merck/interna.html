@@ -9,11 +9,12 @@
 
         <link rel="manifest" href="site.webmanifest">
         <link rel="apple-touch-icon" href="icon.png">
-        <!-- Place favicon.ico in the root directory -->
-        <!-- normalize - bootstrap - main style google fonts-->
+        <!-- Place favicon in the root directory -->
+        <!-- normalize  bootstrap  main style google fonts  animate-->
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/animate.css">
         <link rel="stylesheet" href="css/main.css">
           <!-- font awesome -->
         <script src="https://use.fontawesome.com/542d15e425.js"></script>
@@ -47,10 +48,55 @@
                                   <a class="nav-link" href="#">Inicia Sesión</a>
                                 </li>
                                 <li class="nav-item">
-                                  <a class="nav-link" href="#">Menú</a>
+                                    <a class="nav-link" href="#"><span style="font-size: 20px;cursor:pointer;margin-right: 15px;" id="openNav">&#9776;</span>Menú</a>
                                 </li>
                               </ul>
                         </nav>
+                    </div>
+                </div>
+                <div id="myNav" class="overlay">
+                    <a href="javascript:void(0)" class="closebtn" id="closeNav">&times;</a>
+                    <div class="overlay-content">
+                        <a href="#">
+                            <div class="row main-content-desp">
+                                <div class="col-md-3">
+                                    <img src="img/icon/carnet icon BLANCO.svg" alt="Carnet">
+                                </div>
+                                <div class="col-md-9">
+                                    <p>Carnet Oficial de <span>Mascotas Saludables</span></p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="row main-content-desp">
+                                <div class="col-md-3">
+                                    <img src="img/icon/Calendar icon BLANCO.svg" alt="Calendar">
+                                </div>
+                                <div class="col-md-9">
+                                    <p>Entérate sobre <span>Eventos y Promociones</span></p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="row main-content-desp">
+                                <div class="col-md-3">
+                                    <img src="img/icon/24Hrs icon BLANCO.svg" alt="24 Horas">
+                                </div>
+                                <div class="col-md-9">
+                                    <p>Directorio de <span>Veterinarias y Pet shops</span></p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="row main-content-desp">
+                                <div class="col-md-3">
+                                    <img src="img/icon/Pets new - BLANCO.svg" alt="News">
+                                </div>
+                                <div class="col-md-9">
+                                    <p>Esto te puede <span>interesar</span></p>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 <section class="row">
@@ -64,12 +110,13 @@
         <!-- Main interna -->
         <section class="interna-body">
             <div class="row">
-                <div class="card col-md-7" style="width: 50rem;">
+                <div class="card col-md-8" style="width: 50rem;">
                     <div class="card-body" >
                         <h4>LOREM IPSUM</h4>
                         <p class="card-text">Lorem ipsum adipiscing</p>
+                        <a href="#" data-toggle="modal" data-target="#modalRegisterForm"><img src="img/share.png" alt="Comparte" class="interna-share"></a>
                     </div>
-                    <a href="#" data-toggle="modal" data-target="#modalRegisterForm"><img class="card-img-top" src="img/gato-1.jpg" alt="Card image cap"></a>
+                    <a href="#"><img class="card-img-top" src="img/gato-1.jpg" alt="Card image cap"></a>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ipsam non molestiae, doloremque nobis veritatis obcaecati,
                          voluptate cupiditate iste vero, nemo illo dolorem. Nihil fuga consectetur ipsam deserunt ex asperiores! Lorem ipsum, 
                          dolor sit amet consectetur adipisicing elit. Provident laborum sequi recusandae, sapiente, sunt velit mollitia voluptas
@@ -80,7 +127,7 @@
                     <div class="my-rating-6"></div>
                 </div>  
                 <!-- Aside entradas recientes y mejores calificados -->      
-                <aside class="col-md-5 entradas-recientes">
+                <aside class="col-md-4 entradas-recientes">
                     <h3>Entradas recientes</h3>
                     <ul id="recientes">
                     </ul>
@@ -149,6 +196,7 @@
                                                 <div class="random-title">
         
                                                 </div>
+                                                <h5 class="card-title">Lorem ipsum</h5>
                                                 <p class="card-text">This is a wider card with supporting text belontent is a little bit longer.</p>
                                                 <a href="#" class="card-link">Leer Mas...</a>
                                             </div>
@@ -299,7 +347,7 @@
                     <a href="#"><img src="img/bravecto.png" alt="bravecto"></a>
                 </div>
                 <div class="col-md-3">
-                    <a href="#"><img src="img/msd-2.png" alt="msd"></a>
+                    <a href="#"><img src="img/msd-2.png" alt="msd" class="msd-img"></a>
                 </div>
                 <div class="col-md-3">
                     <a href="#"><img src="img/nobivac.png" alt="nobivac"></a>
