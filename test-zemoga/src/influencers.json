@@ -1,0 +1,45 @@
+[
+    {
+        "id": 1,
+        "votes_up": 64,
+        "votes_down": 36,
+        "name": "Kamye West",
+        "time": "1 month ago",
+        "category": "Entertainment",
+        "description": "Loremp ipsup....",
+        "img": "kamye-west.png"
+    },
+    
+    {
+        "id": 2,
+        "votes_up": 64,
+        "votes_down": 36,
+        "name": "Kamye West",
+        "time": "1 month ago",
+        "category": "Entertainment",
+        "description": "Loremp ipsup....",
+        "img": "kamye-west.png"
+    },
+    
+    {
+        "id": 3,
+        "votes_up": 64,
+        "votes_down": 36,
+        "name": "Kamye West",
+        "time": "1 month ago",
+        "category": "Entertainment",
+        "description": "Loremp ipsup....",
+        "img": "kamye-west.png"
+    },
+    
+    {
+        "id": 4,
+        "votes_up": 64,
+        "votes_down": 36,
+        "name": "Kamye West",
+        "time": "1 month ago",
+        "category": "Entertainment",
+        "description": "Loremp ipsup....",
+        "img": "kamye-west.png"
+    }
+]
