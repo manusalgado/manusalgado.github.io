@@ -1,0 +1,10 @@
+{
+  "products": [
+    { "id": 1, "category": "calzado", "price": 250000, "name": "New Balance", "image": "https://dexter.vteximg.com.br/arquivos/ids/311739-1000-1000/NB10020027550_1.jpg" },
+    { "id": 2, "category": "celulares", "price": 4500000, "name": "Iphone", "image": "https://http2.mlstatic.com/celular-libre-iphone-x-64gb-entrega-inmediata-D_NQ_NP_796192-MCO26287680141_112017-F.jpg" },
+    { "id": 3, "category": "hogar", "price": 80000, "name": "Ollas", "image": "https://http2.mlstatic.com/set-bateria-juego-de-ollas-y-sarten-teflon-tramontina-paris-D_NQ_NP_931221-MLA20725693806_052016-F.jpg" },
+    { "id": 4, "category": "calzado", "price": 150000, "name": "Nike", "image": "https://c.static-nike.com/a/images/t_PDP_1280_v1/f_auto/uwjw39b1xdsbtmfnxjqm/calzado-tanjun-NwTz9kxD.jpg" },
+    { "id": 5, "category": "celulares", "price": 999000, "name": "Xiaomi", "image": "https://image2.geekbuying.com/ggo_pic/2018-07-13/Global-ROM-Xiaomi-Mi8-6-21-Inch-6GB-128GB-Smartphone-Black-664795-.jpg" },
+    { "id": 6, "category": "hogar", "price": 10000, "name": "Almohada", "image": "https://dormitienda.com/818-thickbox_default/almohada-plumon.jpg" }
+  ]
+}
