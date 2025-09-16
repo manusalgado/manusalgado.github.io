@@ -56,23 +56,25 @@ function create(){
 
   enemigo = game.add.group(10,game.world.center -10, 'malo');
   enemigo.enableBody = true;
-  enemigo.scale.setTo(0.2,0.2);
    
    for (var i = 0; i < 2; i++) {
    	var malo = enemigo.create(2 + i * 2, 50, 'malo');
 
-   	malo.body.collideWorldBounds = false;
-   	//malo.body.gravity.y = game.rnd.integerInRange(-50, 50);
-   	malo.body.gravity.x = -30 + Math.random() *2;
-   	malo.body.bounce.setTo(0.5);
+        malo.body.collideWorldBounds = false;
+        //malo.body.gravity.y = game.rnd.integerInRange(-50, 50);
+        malo.body.gravity.x = -30 + Math.random() *2;
+        malo.body.bounce.setTo(0.5);
+        malo.scale.setTo(0.2, 0.2);
    }
+
+  enemigo.setAll('scale.x', 0.2);
+  enemigo.setAll('scale.y', 0.2);
 
 
 
 
   enpanadas = game.add.group();
   enpanadas.enableBody = true;
-  enpanadas.scale.setTo(0.2,0.2);
   //enpanadas.physicsBodyType = Phaser.Physics.ARCADE;
 
   for (var i = 0; i < 100; i++) {
@@ -83,7 +85,11 @@ function create(){
     enpanada.body.gravity.y = game.rnd.integerInRange(-50, 50);
     enpanada.body.gravity.x = -100 + Math.random() *100;
     enpanada.body.bounce.setTo(0.5);
+    enpanada.scale.setTo(0.2, 0.2);
   }
+
+  enpanadas.setAll('scale.x', 0.2);
+  enpanadas.setAll('scale.y', 0.2);
 
   textoScore = game.add.text(20, 20, 'Marcador: 0', {fontSize: '36px', fill: '#fff'});
 
