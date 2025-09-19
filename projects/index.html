@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Proyectos | manusalgado</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --surface-primary: rgba(255, 255, 255, 0.92);
+      --surface-muted: rgba(255, 255, 255, 0.85);
+      --surface-border: rgba(15, 23, 42, 0.08);
+      --surface-shadow: rgba(15, 23, 42, 0.08);
+      --surface-shadow-strong: rgba(15, 23, 42, 0.12);
+      --primary: #2563eb;
+      --primary-contrast: #ffffff;
+      --text-strong: #0f172a;
+      --text-base: #1f2933;
+      --text-muted: #4b5563;
+      --text-soft: #64748b;
+      --background-gradient: linear-gradient(180deg, #f7f8fb 0%, #edf1f7 100%);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--background-gradient);
+      color: var(--text-base);
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 2.5rem 1.5rem 1.5rem;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--surface-border);
+    }
+
+    .breadcrumb {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding-bottom: 1rem;
+    }
+
+    .breadcrumb:hover,
+    .breadcrumb:focus {
+      color: var(--text-strong);
+    }
+
+    header h1 {
+      margin: 0 0 0.5rem;
+      font-size: clamp(2rem, 3vw + 1rem, 3rem);
+      letter-spacing: -0.03em;
+      color: var(--text-strong);
+    }
+
+    header p {
+      margin: 0;
+      max-width: 46rem;
+      line-height: 1.6;
+      color: #52606d;
+      font-size: 1.05rem;
+    }
+
+    main {
+      flex: 1;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    .sections {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    section {
+      background: var(--surface-primary);
+      border-radius: 18px;
+      padding: 2rem;
+      border: 1px solid rgba(15, 23, 42, 0.05);
+      box-shadow: 0 12px 30px var(--surface-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    section h2 {
+      margin: 0;
+      font-size: 1.6rem;
+      color: var(--text-strong);
+    }
+
+    .project-list {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    article h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1.25rem;
+      color: var(--text-strong);
+    }
+
+    article p {
+      margin: 0 0 0.75rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+    }
+
+    .actions a {
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.6rem 1.1rem;
+      border-radius: 999px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .actions a.primary {
+      background: var(--primary);
+      color: var(--primary-contrast);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+    }
+
+    .actions a.primary:hover,
+    .actions a.primary:focus {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.4);
+    }
+
+    .actions a.secondary {
+      border: 1px solid rgba(15, 23, 42, 0.15);
+      color: var(--text-base);
+      background: var(--surface-muted);
+    }
+
+    .actions a.secondary:hover,
+    .actions a.secondary:focus {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.18);
+    }
+
+    footer {
+      padding: 2rem 1.5rem 3rem;
+      text-align: center;
+      color: var(--text-soft);
+      font-size: 0.95rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --surface-primary: rgba(15, 23, 42, 0.8);
+        --surface-muted: rgba(15, 23, 42, 0.6);
+        --surface-border: rgba(148, 163, 184, 0.2);
+        --surface-shadow: rgba(2, 6, 23, 0.7);
+        --surface-shadow-strong: rgba(2, 6, 23, 0.85);
+        --primary-contrast: #e2e8f0;
+        --text-strong: #e2e8f0;
+        --text-base: #e2e8f0;
+        --text-muted: #cbd5f5;
+        --text-soft: #94a3b8;
+        --background-gradient: radial-gradient(circle at top, #111827, #020617 55%);
+      }
+
+      header {
+        background: rgba(2, 6, 23, 0.75);
+        border-color: rgba(148, 163, 184, 0.16);
+      }
+
+      header p {
+        color: var(--text-muted);
+      }
+
+      section {
+        border-color: var(--surface-border);
+        box-shadow: 0 18px 40px var(--surface-shadow-strong);
+      }
+
+      .actions a.secondary {
+        border-color: rgba(148, 163, 184, 0.25);
+        color: var(--text-base);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="breadcrumb" href="/">← Volver al inicio</a>
+    <h1>Explora mis proyectos</h1>
+    <p>
+      Encuentra mis proyectos desplegados y los repositorios de código abierto en un solo lugar.
+      Explora cada enlace para conocer las tecnologías y aprendizajes detrás de cada iniciativa.
+    </p>
+  </header>
+  <main>
+    <div class="sections">
+      <section aria-labelledby="live-projects">
+        <h2 id="live-projects">Proyectos en vivo</h2>
+        <div class="project-list">
+          <article>
+            <h3>Banco</h3>
+            <p>
+              Landing page responsiva que presenta una banca digital moderna, beneficios y planes
+              para clientes que buscan soluciones financieras ágiles.
+            </p>
+            <div class="actions">
+              <a class="primary" href="https://manusalgado.github.io/banco/" target="_blank" rel="noopener">Ver demo</a>
+            </div>
+          </article>
+          <article>
+            <h3>Time</h3>
+            <p>
+              Colección de utilidades para medir y gestionar el tiempo desde el navegador, incluyendo
+              temporizadores y herramientas de seguimiento.
+            </p>
+            <div class="actions">
+              <a class="primary" href="https://manusalgado.github.io/time/" target="_blank" rel="noopener">Ver demo</a>
+            </div>
+          </article>
+          <article>
+            <h3>Videojuego 2</h3>
+            <p>
+              Prototipo de videojuego web en 2D con controles sencillos y niveles desafiantes, ideal
+              para probar reflejos y entretenimiento casual.
+            </p>
+            <div class="actions">
+              <a class="primary" href="https://manusalgado.github.io/videojuego2/" target="_blank" rel="noopener">Ver demo</a>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section aria-labelledby="code-repos">
+        <h2 id="code-repos">Repositorios de código</h2>
+        <div class="project-list">
+          <article>
+            <h3>Cripto App</h3>
+            <p>
+              Código fuente de un panel para seguir precios de criptomonedas con tablas y gráficos
+              dinámicos listos para personalizar.
+            </p>
+            <div class="actions">
+              <a class="secondary" href="https://github.com/manusalgado/cripto-app" target="_blank" rel="noopener">Ver repositorio</a>
+            </div>
+          </article>
+          <article>
+            <h3>Ecommerce React Redux</h3>
+            <p>
+              Arquitectura completa para una tienda en línea construida con React y Redux, enfocada en
+              la experiencia de compra y gestión del carrito.
+            </p>
+            <div class="actions">
+              <a class="secondary" href="https://github.com/manusalgado/ecommerce-react-redux" target="_blank" rel="noopener">Ver repositorio</a>
+            </div>
+          </article>
+          <article>
+            <h3>Weather App</h3>
+            <p>
+              Aplicación meteorológica con búsqueda por ciudad y pronósticos extendidos, ideal para
+              estudiar consumo de APIs y manejo de estado.
+            </p>
+            <div class="actions">
+              <a class="secondary" href="https://github.com/manusalgado/weather-app" target="_blank" rel="noopener">Ver repositorio</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer>
+    © <span id="current-year"></span> Manuel Salgado — Todos los derechos reservados.
+  </footer>
+  <script>
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
