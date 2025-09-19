@@ -58,10 +58,10 @@ function create(){
   enemigo.enableBody = true;
    
    for (var i = 0; i < 2; i++) {
-   	var malo = enemigo.create(2 + i * 2, 50, 'malo');
+        var malo = enemigo.create(2 + i * 2, 50, 'malo');
 
-        malo.body.collideWorldBounds = false;
-        //malo.body.gravity.y = game.rnd.integerInRange(-50, 50);
+        malo.body.collideWorldBounds = true;
+        malo.body.gravity.y = 300;
         malo.body.gravity.x = -30 + Math.random() *2;
         malo.body.bounce.setTo(0.5);
         malo.scale.setTo(0.2, 0.2);
@@ -97,7 +97,8 @@ function create(){
 }
 function update(){
   //game.physics.arcade.collide(enpanadas, plataformas);
-   //game.physics.arcade.collide(player, plataformas);
+   game.physics.arcade.collide(enemigo, plataformas);
+   game.physics.arcade.collide(player, plataformas);
    game.physics.arcade.overlap(player, enpanadas, recolectar, enemigo, null, this);
 
 
