@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio | manusalgado</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(180deg, #f7f8fb 0%, #edf1f7 100%);
+      color: #1f2933;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+      padding: 2.5rem 1.5rem 1.5rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0 0 0.5rem;
+      font-size: clamp(2rem, 3vw + 1rem, 3rem);
+      letter-spacing: -0.03em;
+    }
+
+    header p {
+      margin: 0 auto;
+      max-width: 42rem;
+      line-height: 1.6;
+      color: #52606d;
+      font-size: 1.1rem;
+    }
+
+    main {
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.75rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 18px;
+      padding: 1.75rem;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+      border: 1px solid rgba(15, 23, 42, 0.05);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .project-card:hover,
+    .project-card:focus-within {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+    }
+
+    .project-card h2 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: #0f172a;
+    }
+
+    .project-card p {
+      margin: 0;
+      line-height: 1.6;
+      color: #4b5563;
+    }
+
+    .project-actions {
+      margin-top: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .project-actions a {
+      padding: 0.65rem 1.2rem;
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project-actions a.primary {
+      background: #2563eb;
+      color: #ffffff;
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+    }
+
+    .project-actions a.primary:hover,
+    .project-actions a.primary:focus {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.4);
+    }
+
+    .project-actions a.secondary {
+      border: 1px solid rgba(15, 23, 42, 0.15);
+      color: #1f2937;
+      background: rgba(255, 255, 255, 0.85);
+    }
+
+    .project-actions a.secondary:hover,
+    .project-actions a.secondary:focus {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.18);
+    }
+
+    footer {
+      padding: 2rem 1.5rem 3rem;
+      text-align: center;
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: radial-gradient(circle at top, #111827, #020617 55%);
+        color: #e2e8f0;
+      }
+
+      header {
+        background: rgba(2, 6, 23, 0.75);
+        border-color: rgba(148, 163, 184, 0.16);
+      }
+
+      header p {
+        color: #cbd5f5;
+      }
+
+      .project-card {
+        background: rgba(15, 23, 42, 0.8);
+        border-color: rgba(148, 163, 184, 0.2);
+      }
+
+      .project-card h2 {
+        color: #e2e8f0;
+      }
+
+      .project-card p {
+        color: #cbd5f5;
+      }
+
+      .project-actions a.secondary {
+        color: #e2e8f0;
+        background: rgba(15, 23, 42, 0.6);
+        border-color: rgba(148, 163, 184, 0.25);
+      }
+
+      footer {
+        color: #94a3b8;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Proyectos destacados</h1>
+    <p>
+      Bienvenido a mi portfolio. Aquí encontrarás una selección de aplicaciones y experiencias
+      interactivas que he construido. Explora cada proyecto para ver tecnologías, diseños y
+      funcionalidades en acción.
+    </p>
+  </header>
+  <main>
+    <section class="projects-grid" aria-label="Listado de proyectos">
+      <article class="project-card">
+        <h2>Banco digital</h2>
+        <p>
+          Landing page moderna para una banca digital, enfocada en mostrar beneficios, planes y una
+          experiencia financiera segura y transparente.
+        </p>
+        <div class="project-actions">
+          <a class="primary" href="banco/">Ver proyecto</a>
+          <a class="secondary" href="banco/" target="_blank" rel="noopener">Abrir en pestaña nueva</a>
+        </div>
+      </article>
+      <article class="project-card">
+        <h2>Cripto App</h2>
+        <p>
+          Dashboard interactivo para seguir precios y variaciones de criptomonedas en tiempo real,
+          con tablas dinámicas y gráficos amigables.
+        </p>
+        <div class="project-actions">
+          <a class="primary" href="cripto-app/">Ver proyecto</a>
+          <a class="secondary" href="cripto-app/" target="_blank" rel="noopener">Abrir en pestaña nueva</a>
+        </div>
+      </article>
+      <article class="project-card">
+        <h2>E-commerce React & Redux</h2>
+        <p>
+          Tienda en línea desarrollada con React y Redux que integra un flujo de compra completo,
+          catálogo filtrable y carrito persistente.
+        </p>
+        <div class="project-actions">
+          <a class="primary" href="ecommerce-react-redux/">Ver proyecto</a>
+          <a class="secondary" href="ecommerce-react-redux/" target="_blank" rel="noopener">Abrir en pestaña nueva</a>
+        </div>
+      </article>
+      <article class="project-card">
+        <h2>Time utilities</h2>
+        <p>
+          Colección de utilidades relacionadas con el tiempo, ideal para gestionar horarios, cronómetros
+          o conversiones de zonas horarias desde el navegador.
+        </p>
+        <div class="project-actions">
+          <a class="primary" href="time/">Ver proyecto</a>
+          <a class="secondary" href="time/" target="_blank" rel="noopener">Abrir en pestaña nueva</a>
+        </div>
+      </article>
+      <article class="project-card">
+        <h2>Videojuego web</h2>
+        <p>
+          Prototipo de videojuego 2D hecho para navegador con controles simples, animaciones y niveles
+          desafiantes para poner a prueba tus reflejos.
+        </p>
+        <div class="project-actions">
+          <a class="primary" href="videojuego2/">Ver proyecto</a>
+          <a class="secondary" href="videojuego2/" target="_blank" rel="noopener">Abrir en pestaña nueva</a>
+        </div>
+      </article>
+      <article class="project-card">
+        <h2>Weather App</h2>
+        <p>
+          Aplicación del clima con búsqueda por ciudad, pronósticos extendidos y visualización de
+          condiciones actuales con gráficos intuitivos.
+        </p>
+        <div class="project-actions">
+          <a class="primary" href="weather-app/">Ver proyecto</a>
+          <a class="secondary" href="weather-app/" target="_blank" rel="noopener">Abrir en pestaña nueva</a>
+        </div>
+      </article>
+    </section>
+  </main>
+  <footer>
+    © <span id="current-year"></span> Manuel Salgado — Construido con pasión y dedicación.
+  </footer>
+  <script>
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
