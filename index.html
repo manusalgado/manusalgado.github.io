@@ -1,173 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Manuel Salgado | Front-end Developer</title>
-    <style>
-      :root {
-        color-scheme: light;
-        --bg-base: #f4f5fb;
-        --bg-accent: rgba(86, 109, 255, 0.08);
-        --text-primary: #111827;
-        --text-secondary: #4b5563;
-        --accent: #566dff;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        background: radial-gradient(circle at 20% 20%, var(--bg-accent), transparent 45%),
-          radial-gradient(circle at 80% 0%, rgba(17, 24, 39, 0.05), transparent 55%),
-          var(--bg-base);
-        color: var(--text-primary);
-      }
-
-      main {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 3.5rem 1.5rem 3rem;
-      }
-
-      .hero {
-        width: min(960px, 100%);
-        display: grid;
-        gap: 1.75rem;
-        background: rgba(255, 255, 255, 0.75);
-        border-radius: 28px;
-        padding: clamp(2rem, 5vw, 3.5rem);
-        backdrop-filter: blur(12px);
-        box-shadow: 0 18px 45px rgba(17, 24, 39, 0.08);
-        text-align: center;
-      }
-
-      .hero span {
-        font-size: 0.9rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--accent);
-        font-weight: 600;
-      }
-
-      .hero h1 {
-        margin: 0;
-        font-size: clamp(2.5rem, 6vw, 4.5rem);
-        line-height: 1.1;
-        font-weight: 700;
-      }
-
-      .hero p {
-        margin: 0 auto;
-        max-width: 52ch;
-        font-size: clamp(1.05rem, 2.2vw, 1.3rem);
-        line-height: 1.7;
-        color: var(--text-secondary);
-      }
-
-      .cta {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        margin-top: 0.5rem;
-        padding: 0.9rem 1.9rem;
-        border-radius: 999px;
-        font-weight: 600;
-        text-decoration: none;
-        color: #ffffff;
-        background: linear-gradient(135deg, var(--accent), #3b4ce6);
-        box-shadow: 0 12px 30px rgba(86, 109, 255, 0.35);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-      }
-
-      .cta:hover,
-      .cta:focus-visible {
-        transform: translateY(-2px);
-        box-shadow: 0 16px 38px rgba(86, 109, 255, 0.4);
-      }
-
-      footer {
-        padding: 1.5rem;
-        text-align: center;
-        font-size: 0.95rem;
-        color: var(--text-secondary);
-        display: grid;
-        gap: 0.5rem;
-        background: rgba(255, 255, 255, 0.7);
-        border-top: 1px solid rgba(17, 24, 39, 0.08);
-      }
-
-      footer nav {
-        display: inline-flex;
-        gap: 1.25rem;
-        justify-content: center;
-      }
-
-      footer a {
-        color: var(--accent);
-        text-decoration: none;
-        font-weight: 600;
-      }
-
-      footer a:hover,
-      footer a:focus-visible {
-        text-decoration: underline;
-      }
-
-      @media (min-width: 720px) {
-        .hero {
-          text-align: left;
-          padding: clamp(2.5rem, 5vw, 4rem);
-        }
-
-        .hero p {
-          margin-left: 0;
-        }
-
-        footer {
-          grid-template-columns: auto auto;
-          align-items: center;
-          justify-content: space-between;
-          text-align: left;
-        }
-
-        footer nav {
-          justify-content: flex-end;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <main>
-      <section class="hero" aria-labelledby="hero-title">
-        <span>Front-end developer</span>
-        <h1 id="hero-title">Crafting digital experiences for curious humans</h1>
-        <p>
-          I'm Manuel, a front-end developer who loves sculpting intuitive interfaces, accessible design
-          systems, and interactive prototypes for the web. Let's build something meaningful that balances
-          clarity and delight.
-        </p>
-        <a class="cta" href="/projects/">Explore my work</a>
-      </section>
-    </main>
-    <footer>
-      <span>© <span id="year"></span> Manuel Salgado</span>
-      <nav aria-label="Contact links">
-        <a href="mailto:hello@manusalgado.com">hello@manusalgado.com</a>
-        <a href="https://github.com/manusalgado" target="_blank" rel="noopener">GitHub</a>
-      </nav>
-    </footer>
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manuel Salgado</title>
+</head>
+<body>
+  <h1>Just a Tech</h1>
+  <nav>
+    <ul>
+      <li><a href="/videojuego2/">Videojuego</a></li>
+      <li><a href="/time/">Reloj App</a></li>
+    </ul>
+  </nav>
+  <footer>
+    <p><a href="https://github.com/manusalgado">GitHub</a></p>
+  </footer>
+</body>
 </html>
