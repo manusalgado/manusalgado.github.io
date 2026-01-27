@@ -73,6 +73,11 @@
     }
     .error { color: #ff0000; }
     .success { color: #00ff00; }
+    .hint {
+      color: #004400;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+    }
     footer {
       margin-top: 3rem;
       padding-top: 1rem;
@@ -80,6 +85,11 @@
     }
     footer a { color: #005500; text-decoration: none; }
     footer a:hover { color: #00ff00; }
+    .attempts {
+      color: #ff6600;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+    }
   </style>
 </head>
 <body>
@@ -91,14 +101,15 @@
       <p class="dim">// ACCESS RESTRICTED</p>
       <p class="dim">// solve to unlock projects</p>
       <br>
-      <p>> Sequence: 0, 1, 1, 2, 3, 5, _</p>
-      <p class="dim">// what comes next?</p>
+      <p id="question"></p>
+      <p id="hint" class="hint"></p>
 
       <div class="input-line">
         <span class="prompt">$</span>
         <input type="text" id="answer" placeholder="enter answer" autocomplete="off" autofocus>
       </div>
       <p id="feedback" style="margin-top: 1rem;"></p>
+      <p id="attempts" class="attempts"></p>
     </div>
 
     <div id="projects-section" class="projects hidden">
@@ -115,32 +126,92 @@
   </div>
 
   <script>
+    const challenges = [
+      {
+        question: '> 0b101010 = ?',
+        hint: '// binary to decimal',
+        answer: '42'
+      },
+      {
+        question: '> 0x1F + 0x0A = ?',
+        hint: '// hex math',
+        answer: '41'
+      },
+      {
+        question: '> (1 << 8) - 1 = ?',
+        hint: '// bitwise left shift',
+        answer: '255'
+      },
+      {
+        question: '> sqrt(0x401) = ?',
+        hint: '// hex 0x401 = 1025... or is it?',
+        answer: '32'
+      }
+    ];
+
     const input = document.getElementById('answer');
     const feedback = document.getElementById('feedback');
+    const attemptsEl = document.getElementById('attempts');
+    const questionEl = document.getElementById('question');
+    const hintEl = document.getElementById('hint');
     const challengeSection = document.getElementById('challenge-section');
     const projectsSection = document.getElementById('projects-section');
+
+    let attempts = 0;
+    let currentChallenge;
+
+    function getRandomChallenge() {
+      const index = Math.floor(Math.random() * challenges.length);
+      return challenges[index];
+    }
+
+    function initChallenge() {
+      currentChallenge = getRandomChallenge();
+      questionEl.textContent = currentChallenge.question;
+      hintEl.textContent = currentChallenge.hint;
+    }
 
     // Check if already solved
     if (localStorage.getItem('accessGranted')) {
       challengeSection.classList.add('hidden');
       projectsSection.classList.remove('hidden');
+    } else {
+      initChallenge();
     }
 
     input.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') {
-        const answer = input.value.trim();
-        if (answer === '8') {
+        const answer = input.value.trim().toLowerCase();
+        attempts++;
+
+        if (answer === currentChallenge.answer.toLowerCase()) {
           feedback.textContent = '> decrypting...';
           feedback.className = 'dim';
+          attemptsEl.textContent = '';
           setTimeout(() => {
             localStorage.setItem('accessGranted', 'true');
             challengeSection.classList.add('hidden');
             projectsSection.classList.remove('hidden');
-          }, 800);
+          }, 1000);
         } else {
-          feedback.textContent = '> error: incorrect sequence';
+          feedback.textContent = '> error: access denied';
           feedback.className = 'error';
+          attemptsEl.textContent = `// attempts: ${attempts}`;
           input.value = '';
+
+          // After 3 failed attempts, give a new challenge
+          if (attempts >= 3) {
+            setTimeout(() => {
+              feedback.textContent = '> loading new challenge...';
+              feedback.className = 'dim';
+              setTimeout(() => {
+                initChallenge();
+                attempts = 0;
+                feedback.textContent = '';
+                attemptsEl.textContent = '';
+              }, 800);
+            }, 500);
+          }
         }
       }
     });
