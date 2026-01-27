@@ -131,7 +131,7 @@
   <script>
     const keys = ['GHOST', 'PHANTOM', 'SHADOW', 'CIPHER'];
     const EXPIRY_TIME = 60 * 60 * 1000;
-    const CHALLENGE_TIME = 60; // 60 seconds
+    const CHALLENGE_TIME = 60;
 
     const input = document.getElementById('answer');
     const feedback = document.getElementById('feedback');
@@ -148,21 +148,17 @@
     }
 
     function hideKey(key) {
-      // Remove any previous hidden keys
       document.querySelectorAll('[data-access-key]').forEach(el => el.removeAttribute('data-access-key'));
       const oldComment = document.getElementById('hidden-key-comment');
       if (oldComment) oldComment.remove();
 
-      // Randomly choose where to hide the key
       const locations = [
         () => {
-          // Hidden in data attribute
           document.body.setAttribute('data-access-key', key);
           console.clear();
           console.log('%c// look elsewhere', 'color: #005500');
         },
         () => {
-          // Hidden in HTML comment
           const comment = document.createComment(` ACCESS_KEY: ${key} `);
           comment.id = 'hidden-key-comment';
           document.body.insertBefore(comment, document.body.firstChild);
@@ -170,14 +166,12 @@
           console.log('%c// not here, check the DOM', 'color: #005500');
         },
         () => {
-          // Hidden in console
           console.clear();
           console.log('%c=============================', 'color: #003300');
           console.log('%c  ACCESS_KEY: ' + key, 'color: #00ff00; font-size: 14px; font-weight: bold');
           console.log('%c=============================', 'color: #003300');
         },
         () => {
-          // Hidden in title
           document.title = `[${key}] Manuel Salgado`;
           console.clear();
           console.log('%c// the answer is right in front of you', 'color: #005500');
@@ -244,7 +238,6 @@
       console.clear();
     }
 
-    // Check if already solved and not expired
     if (isAccessValid()) {
       challengeSection.classList.add('hidden');
       projectsSection.classList.remove('hidden');
