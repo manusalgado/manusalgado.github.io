@@ -4,17 +4,146 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Manuel Salgado</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0a0a0a;
+      color: #00ff00;
+      font-family: 'Courier New', monospace;
+      min-height: 100vh;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    .terminal {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .prompt { color: #00ff00; }
+    .dim { color: #005500; }
+    h1 {
+      font-size: 1.2rem;
+      font-weight: normal;
+      margin-bottom: 2rem;
+    }
+    .challenge {
+      margin: 2rem 0;
+      padding: 1rem 0;
+      border-top: 1px solid #003300;
+      border-bottom: 1px solid #003300;
+    }
+    .input-line {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+    input {
+      background: transparent;
+      border: none;
+      color: #00ff00;
+      font-family: inherit;
+      font-size: 1rem;
+      outline: none;
+      flex: 1;
+      caret-color: #00ff00;
+    }
+    input::placeholder { color: #004400; }
+    .cursor {
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+    .hidden { display: none; }
+    .projects {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #003300;
+    }
+    .projects a {
+      color: #00ff00;
+      text-decoration: none;
+      display: block;
+      padding: 0.3rem 0;
+    }
+    .projects a:hover {
+      color: #00ff00;
+      text-decoration: underline;
+    }
+    .error { color: #ff0000; }
+    .success { color: #00ff00; }
+    footer {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid #003300;
+    }
+    footer a { color: #005500; text-decoration: none; }
+    footer a:hover { color: #00ff00; }
+  </style>
 </head>
 <body>
-  <h1>Just a Tech</h1>
-  <nav>
-    <ul>
-      <li><a href="/videojuego2/">Videojuego</a></li>
-      <li><a href="/time/">Reloj App</a></li>
-    </ul>
-  </nav>
-  <footer>
-    <p><a href="https://github.com/manusalgado">GitHub</a></p>
-  </footer>
+  <div class="terminal">
+    <p class="dim">// connection established</p>
+    <h1>> Just a Tech_<span class="cursor">|</span></h1>
+
+    <div id="challenge-section" class="challenge">
+      <p class="dim">// ACCESS RESTRICTED</p>
+      <p class="dim">// solve to unlock projects</p>
+      <br>
+      <p>> Sequence: 0, 1, 1, 2, 3, 5, _</p>
+      <p class="dim">// what comes next?</p>
+
+      <div class="input-line">
+        <span class="prompt">$</span>
+        <input type="text" id="answer" placeholder="enter answer" autocomplete="off" autofocus>
+      </div>
+      <p id="feedback" style="margin-top: 1rem;"></p>
+    </div>
+
+    <div id="projects-section" class="projects hidden">
+      <p class="success">> ACCESS GRANTED</p>
+      <p class="dim">// available projects:</p>
+      <br>
+      <a href="/videojuego2/">> [01] Videojuego</a>
+      <a href="/time/">> [02] Reloj App</a>
+    </div>
+
+    <footer>
+      <a href="https://github.com/manusalgado">> github/manusalgado</a>
+    </footer>
+  </div>
+
+  <script>
+    const input = document.getElementById('answer');
+    const feedback = document.getElementById('feedback');
+    const challengeSection = document.getElementById('challenge-section');
+    const projectsSection = document.getElementById('projects-section');
+
+    // Check if already solved
+    if (localStorage.getItem('accessGranted')) {
+      challengeSection.classList.add('hidden');
+      projectsSection.classList.remove('hidden');
+    }
+
+    input.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        const answer = input.value.trim();
+        if (answer === '8') {
+          feedback.textContent = '> decrypting...';
+          feedback.className = 'dim';
+          setTimeout(() => {
+            localStorage.setItem('accessGranted', 'true');
+            challengeSection.classList.add('hidden');
+            projectsSection.classList.remove('hidden');
+          }, 800);
+        } else {
+          feedback.textContent = '> error: incorrect sequence';
+          feedback.className = 'error';
+          input.value = '';
+        }
+      }
+    });
+  </script>
 </body>
 </html>
