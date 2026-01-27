@@ -149,6 +149,8 @@
       }
     ];
 
+    const EXPIRY_TIME = 60 * 60 * 1000; // 1 hour in milliseconds
+
     const input = document.getElementById('answer');
     const feedback = document.getElementById('feedback');
     const attemptsEl = document.getElementById('attempts');
@@ -171,11 +173,25 @@
       hintEl.textContent = currentChallenge.hint;
     }
 
-    // Check if already solved
-    if (localStorage.getItem('accessGranted')) {
+    function isAccessValid() {
+      const timestamp = sessionStorage.getItem('accessTimestamp');
+      if (!timestamp) return false;
+      const elapsed = Date.now() - parseInt(timestamp, 10);
+      return elapsed < EXPIRY_TIME;
+    }
+
+    function grantAccess() {
+      sessionStorage.setItem('accessTimestamp', Date.now().toString());
+      challengeSection.classList.add('hidden');
+      projectsSection.classList.remove('hidden');
+    }
+
+    // Check if already solved and not expired
+    if (isAccessValid()) {
       challengeSection.classList.add('hidden');
       projectsSection.classList.remove('hidden');
     } else {
+      sessionStorage.removeItem('accessTimestamp');
       initChallenge();
     }
 
@@ -189,9 +205,7 @@
           feedback.className = 'dim';
           attemptsEl.textContent = '';
           setTimeout(() => {
-            localStorage.setItem('accessGranted', 'true');
-            challengeSection.classList.add('hidden');
-            projectsSection.classList.remove('hidden');
+            grantAccess();
           }, 1000);
         } else {
           feedback.textContent = '> error: access denied';
