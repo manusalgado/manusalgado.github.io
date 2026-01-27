@@ -73,10 +73,18 @@
     }
     .error { color: #ff0000; }
     .success { color: #00ff00; }
-    .hint {
-      color: #004400;
-      font-size: 0.85rem;
-      margin-top: 0.5rem;
+    .timer {
+      color: #ff6600;
+      font-size: 1.1rem;
+      margin-top: 1rem;
+    }
+    .timer.critical {
+      color: #ff0000;
+      animation: pulse 0.5s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
     }
     footer {
       margin-top: 3rem;
@@ -85,11 +93,6 @@
     }
     footer a { color: #005500; text-decoration: none; }
     footer a:hover { color: #00ff00; }
-    .attempts {
-      color: #ff6600;
-      font-size: 0.85rem;
-      margin-top: 0.5rem;
-    }
   </style>
 </head>
 <body>
@@ -99,17 +102,17 @@
 
     <div id="challenge-section" class="challenge">
       <p class="dim">// ACCESS RESTRICTED</p>
-      <p class="dim">// solve to unlock projects</p>
+      <p class="dim">// find the key hidden in this page</p>
       <br>
-      <p id="question"></p>
-      <p id="hint" class="hint"></p>
+      <p>> hint: inspect what you can't see</p>
+      <p class="dim">// devs know where to look</p>
 
       <div class="input-line">
         <span class="prompt">$</span>
-        <input type="text" id="answer" placeholder="enter answer" autocomplete="off" autofocus>
+        <input type="text" id="answer" placeholder="enter key" autocomplete="off" autofocus>
       </div>
       <p id="feedback" style="margin-top: 1rem;"></p>
-      <p id="attempts" class="attempts"></p>
+      <p id="timer" class="timer"></p>
     </div>
 
     <div id="projects-section" class="projects hidden">
@@ -126,51 +129,103 @@
   </div>
 
   <script>
-    const challenges = [
-      {
-        question: '> 0b101010 = ?',
-        hint: '// binary to decimal',
-        answer: '42'
-      },
-      {
-        question: '> 0x1F + 0x0A = ?',
-        hint: '// hex math',
-        answer: '41'
-      },
-      {
-        question: '> (1 << 8) - 1 = ?',
-        hint: '// bitwise left shift',
-        answer: '255'
-      },
-      {
-        question: '> sqrt(0x401) = ?',
-        hint: '// hex 0x401 = 1025... or is it?',
-        answer: '32'
-      }
-    ];
-
-    const EXPIRY_TIME = 60 * 60 * 1000; // 1 hour in milliseconds
+    const keys = ['GHOST', 'PHANTOM', 'SHADOW', 'CIPHER'];
+    const EXPIRY_TIME = 60 * 60 * 1000;
+    const CHALLENGE_TIME = 60; // 60 seconds
 
     const input = document.getElementById('answer');
     const feedback = document.getElementById('feedback');
-    const attemptsEl = document.getElementById('attempts');
-    const questionEl = document.getElementById('question');
-    const hintEl = document.getElementById('hint');
+    const timerEl = document.getElementById('timer');
     const challengeSection = document.getElementById('challenge-section');
     const projectsSection = document.getElementById('projects-section');
 
-    let attempts = 0;
-    let currentChallenge;
+    let currentKey;
+    let timeLeft;
+    let timerInterval;
 
-    function getRandomChallenge() {
-      const index = Math.floor(Math.random() * challenges.length);
-      return challenges[index];
+    function getRandomKey() {
+      return keys[Math.floor(Math.random() * keys.length)];
+    }
+
+    function hideKey(key) {
+      // Remove any previous hidden keys
+      document.querySelectorAll('[data-access-key]').forEach(el => el.removeAttribute('data-access-key'));
+      const oldComment = document.getElementById('hidden-key-comment');
+      if (oldComment) oldComment.remove();
+
+      // Randomly choose where to hide the key
+      const locations = [
+        () => {
+          // Hidden in data attribute
+          document.body.setAttribute('data-access-key', key);
+          console.clear();
+          console.log('%c// look elsewhere', 'color: #005500');
+        },
+        () => {
+          // Hidden in HTML comment
+          const comment = document.createComment(` ACCESS_KEY: ${key} `);
+          comment.id = 'hidden-key-comment';
+          document.body.insertBefore(comment, document.body.firstChild);
+          console.clear();
+          console.log('%c// not here, check the DOM', 'color: #005500');
+        },
+        () => {
+          // Hidden in console
+          console.clear();
+          console.log('%c=============================', 'color: #003300');
+          console.log('%c  ACCESS_KEY: ' + key, 'color: #00ff00; font-size: 14px; font-weight: bold');
+          console.log('%c=============================', 'color: #003300');
+        },
+        () => {
+          // Hidden in title
+          document.title = `[${key}] Manuel Salgado`;
+          console.clear();
+          console.log('%c// the answer is right in front of you', 'color: #005500');
+        }
+      ];
+
+      const randomLocation = locations[Math.floor(Math.random() * locations.length)];
+      randomLocation();
+    }
+
+    function startTimer() {
+      timeLeft = CHALLENGE_TIME;
+      updateTimerDisplay();
+
+      timerInterval = setInterval(() => {
+        timeLeft--;
+        updateTimerDisplay();
+
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          feedback.textContent = '> time expired. generating new key...';
+          feedback.className = 'error';
+          input.value = '';
+
+          setTimeout(() => {
+            initChallenge();
+          }, 1500);
+        }
+      }, 1000);
+    }
+
+    function updateTimerDisplay() {
+      timerEl.textContent = `// time remaining: ${timeLeft}s`;
+      if (timeLeft <= 10) {
+        timerEl.classList.add('critical');
+      } else {
+        timerEl.classList.remove('critical');
+      }
     }
 
     function initChallenge() {
-      currentChallenge = getRandomChallenge();
-      questionEl.textContent = currentChallenge.question;
-      hintEl.textContent = currentChallenge.hint;
+      clearInterval(timerInterval);
+      currentKey = getRandomKey();
+      hideKey(currentKey);
+      feedback.textContent = '';
+      feedback.className = '';
+      document.title = 'Manuel Salgado';
+      startTimer();
     }
 
     function isAccessValid() {
@@ -181,9 +236,12 @@
     }
 
     function grantAccess() {
+      clearInterval(timerInterval);
       sessionStorage.setItem('accessTimestamp', Date.now().toString());
       challengeSection.classList.add('hidden');
       projectsSection.classList.remove('hidden');
+      document.title = 'Manuel Salgado';
+      console.clear();
     }
 
     // Check if already solved and not expired
@@ -197,35 +255,19 @@
 
     input.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') {
-        const answer = input.value.trim().toLowerCase();
-        attempts++;
+        const answer = input.value.trim().toUpperCase();
 
-        if (answer === currentChallenge.answer.toLowerCase()) {
-          feedback.textContent = '> decrypting...';
-          feedback.className = 'dim';
-          attemptsEl.textContent = '';
+        if (answer === currentKey) {
+          feedback.textContent = '> access granted...';
+          feedback.className = 'success';
+          timerEl.textContent = '';
           setTimeout(() => {
             grantAccess();
-          }, 1000);
+          }, 800);
         } else {
-          feedback.textContent = '> error: access denied';
+          feedback.textContent = '> invalid key';
           feedback.className = 'error';
-          attemptsEl.textContent = `// attempts: ${attempts}`;
           input.value = '';
-
-          // After 3 failed attempts, give a new challenge
-          if (attempts >= 3) {
-            setTimeout(() => {
-              feedback.textContent = '> loading new challenge...';
-              feedback.className = 'dim';
-              setTimeout(() => {
-                initChallenge();
-                attempts = 0;
-                feedback.textContent = '';
-                attemptsEl.textContent = '';
-              }, 800);
-            }, 500);
-          }
         }
       }
     });
