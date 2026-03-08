@@ -1,137 +1,223 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8">
-    <title>juego</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>¡Empanadas! — Come empanadas, evita atracadores</title>
+    <style>
+      body { margin: 0; background: #1a1a2e; display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: sans-serif; }
+      #zonajuego { box-shadow: 0 0 30px rgba(0,0,0,0.5); border-radius: 8px; }
+      .instrucciones { color: #eee; text-align: center; margin-top: 12px; font-size: 14px; }
+    </style>
     <script src="js/phaser.js"></script>
-  
   </head>
   <body>
-  <script>
-    var plataformas;
-    var enpanadas;
-    var player;
-    var enemigo;
-    var controles;
-    var score = 0;
-    var textoScore;
-    var game = new Phaser.Game(1200, 600, Phaser.CANVAS, 'zonajuego', {preload: preload, create: create, update: update});
+    <div>
+      <div id="zonajuego"></div>
+      <p class="instrucciones">Flechas: mover · Arriba: saltar · Come empanadas para subir de nivel · ¡Evita a los atracadores!</p>
+    </div>
+    <script>
+(function() {
+  var plataformas, enpanadas, player, enemigo, controles;
+  var score = 0;
+  var nivel = 1;
+  var empanadasParaSiguienteNivel = 5;
+  var empanadasEnEsteNivel = 0;
+  var gameOver = false;
+  var textoScore, textoNivel, textoGameOver, textoInstruccion, textoSubisteNivel;
 
-function preload(){
-  //aqui se cargan los sprites 'imagenes' del juego
-  game.load.image('fondo', 'imagenes/5.jpg');
-  game.load.image('enpanada', 'imagenes/4.png');
-  game.load.image('malo','imagenes/7.png');
-  game.load.image('barra', 'imagenes/1.png');
-  game.load.spritesheet('player','imagenes/6.png', 102, 129);
+  var game = new Phaser.Game(1200, 600, Phaser.CANVAS, 'zonajuego', {
+    preload: preload,
+    create: create,
+    update: update
+  });
 
-}
-function create(){
-  //agrear fisica
-  game.physics.startSystem(Phaser.Physics.ARCADE);
+  function preload() {
+    game.load.image('fondo', 'imagenes/5.jpg');
+    game.load.image('enpanada', 'imagenes/4.png');
+    game.load.image('malo', 'imagenes/7.png');
+    game.load.image('barra', 'imagenes/1.png');
+    game.load.spritesheet('player', 'imagenes/6.png', 102, 129);
+  }
 
-  //aqui se agrega el fondo
-  game.add.sprite(0, 0, 'fondo');
-  plataformas = game.add.group();
-  plataformas.enableBody = true;
-  var piso = plataformas.create(0, game.world.height - 100 , 'barra');
+  function create() {
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
+    game.add.sprite(0, 0, 'fondo');
+
+    plataformas = game.add.group();
+    plataformas.enableBody = true;
+    var piso = plataformas.create(0, game.world.height - 100, 'barra');
     piso.scale.setTo(1.7, 1.7);
     piso.body.immovable = true;
 
+    player = game.add.sprite(32, game.world.height - 150, 'player');
+    player.scale.setTo(1, 1);
+    game.physics.arcade.enable(player);
+    player.body.bounce.y = 0.2;
+    player.body.gravity.y = 320;
+    player.body.collideWorldBounds = true;
 
-  //game.add.sprite(0, 0, 'enpanada');
-  player = game.add.sprite(32, game.world.height-50, 'player');
-  player.scale.setTo(1,1);
-  //player.frame = 4;
-  game.physics.arcade.enable(player);
-  player.body.bounce.y = 0.3;
-  player.body.gravity.y = 300;
-  player.body.collideWorldBounds = true;
+    player.animations.add('izquierda', [0, 1], 8, true);
+    player.animations.add('derecha', [2, 3], 8, true);
 
-  
+    // Atracadores (enemigos): nivel 1 con 1 solo, más fácil al inicio
+    enemigo = game.add.group();
+    enemigo.enableBody = true;
+    crearAtracadores(1);
 
-  player.animations.add('izquierda', [0,1], 1, true);
-  player.animations.add('derecha', [2,3], 1, true);
+    // Empanadas: algunas en el suelo y otras repartidas para que sea jugable
+    enpanadas = game.add.group();
+    enpanadas.enableBody = true;
+    generarEmpanadas();
 
+    // HUD
+    textoScore = game.add.text(20, 20, 'Empanadas: 0', {
+      fontSize: '28px',
+      fill: '#fff',
+      fontWeight: 'bold',
+      stroke: '#000',
+      strokeThickness: 4
+    });
+    textoNivel = game.add.text(20, 56, 'Nivel: 1', {
+      fontSize: '28px',
+      fill: '#ffeb3b',
+      fontWeight: 'bold',
+      stroke: '#000',
+      strokeThickness: 4
+    });
 
-  enemigo = game.add.group(10,game.world.center -10, 'malo');
-  enemigo.enableBody = true;
-   
-   for (var i = 0; i < 2; i++) {
-        var malo = enemigo.create(2 + i * 2, 50, 'malo');
-
-        malo.body.collideWorldBounds = true;
-        malo.body.gravity.y = 300;
-        malo.body.gravity.x = -30 + Math.random() *2;
-        malo.body.bounce.setTo(0.5);
-        malo.scale.setTo(0.2, 0.2);
-   }
-
-  enemigo.setAll('scale.x', 0.2);
-  enemigo.setAll('scale.y', 0.2);
-
-
-
-
-  enpanadas = game.add.group();
-  enpanadas.enableBody = true;
-  //enpanadas.physicsBodyType = Phaser.Physics.ARCADE;
-
-  for (var i = 0; i < 100; i++) {
-    var enpanada = enpanadas.create(100 + i * 100, 50, 'enpanada');
-
-    //agregar fisica
-    enpanada.body.collideWorldBounds = false;
-    enpanada.body.gravity.y = game.rnd.integerInRange(-50, 50);
-    enpanada.body.gravity.x = -100 + Math.random() *100;
-    enpanada.body.bounce.setTo(0.5);
-    enpanada.scale.setTo(0.2, 0.2);
+    controles = game.input.keyboard.createCursorKeys();
+    var teclaEspacio = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+    teclaEspacio.onDown.addOnce(function() {
+      if (gameOver) location.reload();
+    });
   }
 
-  enpanadas.setAll('scale.x', 0.2);
-  enpanadas.setAll('scale.y', 0.2);
+  function crearAtracadores(cantidad) {
+    var w = game.world.width;
+    var h = game.world.height;
+    for (var i = 0; i < cantidad; i++) {
+      var malo = enemigo.create(game.rnd.integerInRange(80, w - 80), h - 180 - game.rnd.integerInRange(0, 80), 'malo');
+      malo.body.collideWorldBounds = true;
+      malo.body.gravity.y = 0;
+      var baseVel = 50 + (nivel - 1) * 15 + game.rnd.integerInRange(0, 25);
+      malo.body.velocity.x = game.rnd.pick([-1, 1]) * baseVel;
+      malo.scale.setTo(0.25, 0.25);
+      malo.anchor.setTo(0.5, 0.5);
+    }
+    enemigo.setAll('scale.x', 0.25);
+    enemigo.setAll('scale.y', 0.25);
+  }
 
-  textoScore = game.add.text(20, 20, 'Marcador: 0', {fontSize: '36px', fill: '#fff'});
+  function moverAtracadores() {
+    enemigo.forEachAlive(function(m) {
+      if (m.x < 40) m.body.velocity.x = Math.abs(m.body.velocity.x);
+      if (m.x > game.world.width - 40) m.body.velocity.x = -Math.abs(m.body.velocity.x);
+    });
+  }
 
-  controles = game.input.keyboard.createCursorKeys();
-}
-function update(){
-  //game.physics.arcade.collide(enpanadas, plataformas);
-   game.physics.arcade.collide(enemigo, plataformas);
-   game.physics.arcade.collide(player, plataformas);
-   game.physics.arcade.overlap(player, enpanadas, recolectar, null, this);
+  function generarEmpanadas() {
+    var w = game.world.width;
+    var sueloY = game.world.height - 120;
+    // En el suelo para que sea fácil recoger
+    for (var i = 0; i < 25; i++) {
+      var enpanada = enpanadas.create(80 + (i % 10) * 110, sueloY - (Math.floor(i / 10) * 60), 'enpanada');
+      enpanada.body.allowGravity = false;
+      enpanada.body.immovable = true;
+      enpanada.scale.setTo(0.22, 0.22);
+    }
+    enpanadas.setAll('scale.x', 0.22);
+    enpanadas.setAll('scale.y', 0.22);
+  }
 
-
-   player.body.velocity.x = 0;
-
-   if (controles.left.isDown) {
-
-    player.body.velocity.x = -150;
-    player.animations.play('izquierda');
-   }else
-
-   if (controles.right.isDown) {
-
-    player.body.velocity.x = 150;
-    player.animations.play('derecha');
-   }else
-   {
-    player.animations.stop();
-    player.frame = 3;
-   }
-
-   if (controles.up.isDown) {
-    player.body.velocity.y = -550;
-   }
-
-   function recolectar(player, enpanadas){
-
-    enpanadas.kill();
-
+  function recolectar(playerSprite, enpanadaSprite) {
+    enpanadaSprite.kill();
     score += 1;
-    textoScore.text = 'Marcador ' + score;
-   }
-}
-  </script>
+    empanadasEnEsteNivel += 1;
+    textoScore.text = 'Empanadas: ' + score;
+
+    if (empanadasEnEsteNivel >= empanadasParaSiguienteNivel) {
+      empanadasEnEsteNivel = 0;
+      nivel += 1;
+      empanadasParaSiguienteNivel = 4 + nivel;
+      textoNivel.text = 'Nivel: ' + nivel;
+      if (textoSubisteNivel) textoSubisteNivel.destroy();
+      textoSubisteNivel = game.add.text(game.world.centerX, 80, '¡Subiste de nivel!', {
+        fontSize: '36px',
+        fill: '#76ff03',
+        fontWeight: 'bold',
+        align: 'center'
+      });
+      textoSubisteNivel.anchor.setTo(0.5);
+      game.time.events.add(Phaser.Timer.SECOND * 1.5, function() {
+        if (textoSubisteNivel) textoSubisteNivel.destroy();
+      }, this);
+      crearAtracadores(1);
+      enemigo.forEachAlive(function(m) {
+        var signo = m.body.velocity.x > 0 ? 1 : -1;
+        m.body.velocity.x = signo * (Math.abs(m.body.velocity.x) * 1.08 + 8);
+      });
+    }
+  }
+
+  function perder(playerSprite, atracador) {
+    if (gameOver) return;
+    gameOver = true;
+    game.physics.arcade.pause();
+    player.kill();
+
+    textoGameOver = game.add.text(game.world.centerX, game.world.centerY - 60, '¡Atracado!', {
+      fontSize: '64px',
+      fill: '#ff1744',
+      fontWeight: 'bold',
+      align: 'center'
+    });
+    textoGameOver.anchor.setTo(0.5);
+
+    var resumen = game.add.text(game.world.centerX, game.world.centerY + 5, score + ' empanadas · Nivel ' + nivel, {
+      fontSize: '22px',
+      fill: '#ffcc80',
+      align: 'center'
+    });
+    resumen.anchor.setTo(0.5);
+
+    textoInstruccion = game.add.text(game.world.centerX, game.world.centerY + 50, 'Espacio para reiniciar', {
+      fontSize: '24px',
+      fill: '#fff',
+      align: 'center'
+    });
+    textoInstruccion.anchor.setTo(0.5);
+  }
+
+  function update() {
+    if (gameOver) return;
+
+    game.physics.arcade.collide(enemigo, plataformas);
+    game.physics.arcade.collide(player, plataformas);
+    game.physics.arcade.overlap(player, enpanadas, recolectar, null, this);
+    game.physics.arcade.overlap(player, enemigo, perder, null, this);
+
+    moverAtracadores();
+
+    player.body.velocity.x = 0;
+
+    if (controles.left.isDown) {
+      player.body.velocity.x = -180;
+      player.animations.play('izquierda');
+    } else if (controles.right.isDown) {
+      player.body.velocity.x = 180;
+      player.animations.play('derecha');
+    } else {
+      player.animations.stop();
+      player.frame = 3;
+    }
+
+    if (controles.up.justDown && (player.body.touching.down || player.body.blocked.down)) {
+      player.body.velocity.y = -380;
+    }
+  }
+})();
+    </script>
   </body>
 </html>
