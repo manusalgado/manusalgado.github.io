@@ -73,6 +73,19 @@
       font-size: 1.05rem;
     }
 
+    .about {
+      max-width: 640px;
+      margin: 0 auto 2.5rem;
+      padding: 0 1.5rem;
+    }
+
+    .about p {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+
     main {
       flex: 1;
       padding: 3rem 1.5rem 4rem;
@@ -224,6 +237,17 @@
       font-size: 0.95rem;
     }
 
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer a:hover,
+    footer a:focus {
+      text-decoration: underline;
+    }
+
     @media (prefers-color-scheme: dark) {
       :root {
         --surface-primary: rgba(15, 23, 42, 0.8);
@@ -265,6 +289,10 @@
         border-color: rgba(148, 163, 184, 0.25);
         color: var(--text-base);
       }
+
+      .about p {
+        color: var(--text-muted);
+      }
     }
   </style>
 </head>
@@ -276,6 +304,9 @@
       Production product showcasing AI engineering—voice, LLMs, real-time systems—and clear product UX.
     </p>
   </header>
+  <div class="about">
+    <p>I build and ship products that use voice, language models, and real-time systems. Interested in contracts and full-time roles as an AI engineer.</p>
+  </div>
   <main>
     <div class="sections">
       <section aria-labelledby="project-ora">
@@ -297,7 +328,14 @@
     </div>
   </main>
   <footer>
-    © <span id="current-year"></span> Manuel Salgado. All rights reserved.
+    <p style="margin: 0 0 0.75rem;">
+      <a href="mailto:manuel@ora-io.com">Email</a>
+      <span style="color: var(--text-soft); margin: 0 0.5rem;">·</span>
+      <a href="https://www.linkedin.com/in/manuel-592968129/" target="_blank" rel="noopener">LinkedIn</a>
+      <span style="color: var(--text-soft); margin: 0 0.5rem;">·</span>
+      <a href="https://github.com/manusalgado" target="_blank" rel="noopener">GitHub</a>
+    </p>
+    <p style="margin: 0; color: var(--text-soft); font-size: 0.9rem;">© <span id="current-year"></span> Manuel Salgado. All rights reserved.</p>
   </footer>
   <script>
     document.getElementById("current-year").textContent = new Date().getFullYear();
