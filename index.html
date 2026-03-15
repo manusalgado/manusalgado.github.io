@@ -8,8 +8,9 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       background: #f8f9fa;
-      color: #1e293b;
+      color: #334155;
       font-family: 'Courier New', 'SF Mono', Consolas, monospace;
+      font-weight: 500;
       min-height: 100vh;
       padding: 2rem;
       line-height: 1.6;
@@ -18,11 +19,11 @@
       max-width: 600px;
       margin: 0 auto;
     }
-    .prompt { color: #15803d; }
-    .dim { color: #64748b; }
+    .prompt { color: #15803d; font-weight: 600; }
+    .dim { color: #475569; font-weight: 500; }
     h1 {
       font-size: 1.2rem;
-      font-weight: normal;
+      font-weight: 600;
       margin-bottom: 2rem;
       color: #0f172a;
     }
@@ -41,17 +42,19 @@
     input {
       background: transparent;
       border: none;
-      color: #1e293b;
+      color: #334155;
       font-family: inherit;
       font-size: 1rem;
+      font-weight: 500;
       outline: none;
       flex: 1;
-      caret-color: #15803d;
+      caret-color: #166534;
     }
-    input::placeholder { color: #94a3b8; }
+    input::placeholder { color: #64748b; }
     .cursor {
       animation: blink 1s infinite;
-      color: #15803d;
+      color: #166534;
+      font-weight: 600;
     }
     @keyframes blink {
       0%, 50% { opacity: 1; }
@@ -64,7 +67,8 @@
       border-top: 1px solid #e2e8f0;
     }
     .projects a {
-      color: #15803d;
+      color: #166534;
+      font-weight: 600;
       text-decoration: none;
       display: block;
       padding: 0.3rem 0;
@@ -72,15 +76,17 @@
     .projects a:hover {
       text-decoration: underline;
     }
-    .error { color: #b91c1c; }
-    .success { color: #15803d; }
+    .error { color: #b91c1c; font-weight: 600; }
+    .success { color: #166534; font-weight: 600; }
     .timer {
       color: #c2410c;
       font-size: 1.1rem;
+      font-weight: 600;
       margin-top: 1rem;
     }
     .timer.critical {
       color: #b91c1c;
+      font-weight: 600;
       animation: pulse 0.5s infinite;
     }
     @keyframes pulse {
@@ -92,8 +98,8 @@
       padding-top: 1rem;
       border-top: 1px solid #e2e8f0;
     }
-    footer a { color: #475569; text-decoration: none; display: inline-block; margin-right: 1rem; }
-    footer a:hover { color: #15803d; }
+    footer a { color: #334155; font-weight: 500; text-decoration: none; display: inline-block; margin-right: 1rem; }
+    footer a:hover { color: #166534; }
     footer p { margin: 0.25rem 0; }
   </style>
 </head>
@@ -110,7 +116,7 @@
       <br>
       <p>> hint: inspect what you can't see</p>
       <p class="dim">// devs know where to look</p>
-      <p style="margin-top: 1rem;"><span class="dim">> or</span> <a href="/projects/" style="color: #15803d;">view project</a> · <a href="#contact" style="color: #15803d;">contact</a></p>
+      <p style="margin-top: 1rem;"><span class="dim">> or</span> <a href="/projects/" style="color: #166534; font-weight: 600;">view project</a> · <a href="#contact" style="color: #166534; font-weight: 600;">contact</a></p>
 
       <div class="input-line">
         <span class="prompt">$</span>
