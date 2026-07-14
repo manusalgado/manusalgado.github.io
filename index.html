@@ -1,287 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Manuel Salgado</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background: #f8f9fa;
-      color: #334155;
-      font-family: 'Courier New', 'SF Mono', Consolas, monospace;
-      font-weight: 500;
-      min-height: 100vh;
-      padding: 2rem;
-      line-height: 1.6;
-    }
-    .terminal {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .prompt { color: #15803d; font-weight: 600; }
-    .dim { color: #475569; font-weight: 500; }
-    h1 {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-bottom: 2rem;
-      color: #0f172a;
-    }
-    .challenge {
-      margin: 2rem 0;
-      padding: 1rem 0;
-      border-top: 1px solid #e2e8f0;
-      border-bottom: 1px solid #e2e8f0;
-    }
-    .input-line {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-top: 1.5rem;
-    }
-    input {
-      background: transparent;
-      border: none;
-      color: #334155;
-      font-family: inherit;
-      font-size: 1rem;
-      font-weight: 500;
-      outline: none;
-      flex: 1;
-      caret-color: #166534;
-    }
-    input::placeholder { color: #64748b; }
-    .cursor {
-      animation: blink 1s infinite;
-      color: #166534;
-      font-weight: 600;
-    }
-    @keyframes blink {
-      0%, 50% { opacity: 1; }
-      51%, 100% { opacity: 0; }
-    }
-    .hidden { display: none; }
-    .projects {
-      margin-top: 2rem;
-      padding-top: 1rem;
-      border-top: 1px solid #e2e8f0;
-    }
-    .projects a {
-      color: #166534;
-      font-weight: 600;
-      text-decoration: none;
-      display: block;
-      padding: 0.3rem 0;
-    }
-    .projects a:hover {
-      text-decoration: underline;
-    }
-    .error { color: #b91c1c; font-weight: 600; }
-    .success { color: #166534; font-weight: 600; }
-    .timer {
-      color: #c2410c;
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-top: 1rem;
-    }
-    .timer.critical {
-      color: #b91c1c;
-      font-weight: 600;
-      animation: pulse 0.5s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
-    footer {
-      margin-top: 3rem;
-      padding-top: 1rem;
-      border-top: 1px solid #e2e8f0;
-    }
-    footer a { color: #334155; font-weight: 500; text-decoration: none; display: inline-block; margin-right: 1rem; }
-    footer a:hover { color: #166534; }
-    footer p { margin: 0.25rem 0; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manuel Salgado - Senior Frontend Engineer</title>
+<meta name="description" content="Senior Frontend Engineer. 8+ years building high-scale React products for Pfizer, Disney Parks and Rappi. Builder of Utterwell and Copilot Ultralite.">
+<meta property="og:title" content="Manuel Salgado - Senior Frontend Engineer">
+<meta property="og:description" content="8+ years building high-scale React products. Builder of Utterwell and Copilot Ultralite.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://manusalgado.github.io">
+<style>
+  :root {
+    --ink: #000;
+    --muted: #6e6e73;
+    --line: #e5e5e5;
+    --bg: #fff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex; justify-content: space-between; align-items: center;
+    height: 52px;
+  }
+  .nav-name { font-size: 14px; font-weight: 600; letter-spacing: -0.01em; }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a { font-size: 13px; color: var(--muted); transition: color .2s; }
+  .nav-links a:hover { color: var(--ink); }
+
+  header { padding: 140px 0 120px; }
+  .kicker {
+    font-size: 12px; font-weight: 600; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 20px;
+  }
+  h1 {
+    font-size: clamp(40px, 7vw, 76px);
+    font-weight: 700; letter-spacing: -0.03em; line-height: 1.05;
+    max-width: 15ch;
+  }
+  .lede {
+    margin-top: 28px; font-size: clamp(17px, 2.2vw, 21px);
+    color: var(--muted); max-width: 52ch; font-weight: 400;
+  }
+  .lede b { color: var(--ink); font-weight: 600; }
+
+  section { border-top: 1px solid var(--line); padding: 96px 0; }
+  .section-label {
+    font-size: 12px; font-weight: 600; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 48px;
+  }
+
+  .product { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; padding: 48px 0; }
+  .product + .product { border-top: 1px solid var(--line); }
+  .product h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 700; letter-spacing: -0.02em; }
+  .product .tag { font-size: 13px; color: var(--muted); margin-bottom: 10px; font-weight: 500; }
+  .product p { margin-top: 14px; color: var(--muted); font-size: 17px; max-width: 44ch; }
+  .product .stack { margin-top: 18px; font-size: 13px; color: var(--muted); }
+  .cta {
+    display: inline-block; margin-top: 28px;
+    background: var(--ink); color: #fff;
+    font-size: 14px; font-weight: 600;
+    padding: 12px 24px; border-radius: 980px;
+    transition: opacity .2s;
+  }
+  .cta:hover { opacity: .75; }
+  .shot {
+    border: 1px solid var(--line); border-radius: 18px;
+    background: #fafafa;
+    aspect-ratio: 2 / 1; overflow: hidden;
+    display: block;
+  }
+  .shot img {
+    width: 100%; height: 100%; object-fit: cover; object-position: top;
+    display: block; transition: transform .4s ease;
+  }
+  .shot:hover img { transform: scale(1.02); }
+
+  .xp-row {
+    display: grid; grid-template-columns: 220px 1fr 180px;
+    gap: 24px; padding: 28px 0; border-top: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .xp-row:first-of-type { border-top: none; padding-top: 0; }
+  .xp-role { font-size: 17px; font-weight: 600; }
+  .xp-org { color: var(--muted); font-size: 15px; }
+  .xp-note { color: var(--muted); font-size: 15px; max-width: 60ch; }
+  .xp-when { color: var(--muted); font-size: 14px; text-align: right; font-variant-numeric: tabular-nums; }
+
+  .caps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+  .cap h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+  .cap p { font-size: 14px; color: var(--muted); }
+
+  footer { border-top: 1px solid var(--line); padding: 96px 0 120px; }
+  footer h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 700; letter-spacing: -0.02em; }
+  .contact-links { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 32px; }
+  .contact-links a {
+    font-size: 15px; font-weight: 500;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 2px; transition: border-color .2s;
+  }
+  .contact-links a:hover { border-color: var(--ink); }
+  .fine { margin-top: 64px; font-size: 12px; color: var(--muted); }
+
+  @media (max-width: 760px) {
+    header { padding: 88px 0 72px; }
+    section, footer { padding: 64px 0; }
+    .product { grid-template-columns: 1fr; gap: 28px; }
+    .shot { order: -1; }
+    .xp-row { grid-template-columns: 1fr; gap: 4px; }
+    .xp-when { text-align: left; }
+    .caps { grid-template-columns: 1fr; gap: 28px; }
+    .nav-links { gap: 18px; }
+  }
+</style>
 </head>
 <body>
-  <div class="terminal">
-    <p class="dim">// connection established</p>
-    <h1>> Just a Tech_<span class="cursor">|</span></h1>
 
-    <p class="dim" style="margin-bottom: 1.5rem;">// AI engineer — automations, CI/CD, delivery & deployment processes</p>
-
-    <div id="challenge-section" class="challenge">
-      <p class="dim">// ACCESS RESTRICTED</p>
-      <p class="dim">// find the key hidden in this page</p>
-      <br>
-      <p>> hint: inspect what you can't see</p>
-      <p class="dim">// devs know where to look</p>
-      <p style="margin-top: 1rem;"><span class="dim">> or</span> <a href="/projects/" style="color: #166534; font-weight: 600;">view project</a> · <a href="#contact" style="color: #166534; font-weight: 600;">contact</a></p>
-
-      <div class="input-line">
-        <span class="prompt">$</span>
-        <input type="text" id="answer" placeholder="enter key" autocomplete="off" autofocus>
-      </div>
-      <p id="feedback" style="margin-top: 1rem;"></p>
-      <p id="timer" class="timer"></p>
+<nav>
+  <div class="wrap nav-inner">
+    <span class="nav-name">Manuel Salgado</span>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
     </div>
-
-    <div id="projects-section" class="projects hidden">
-      <p class="success">> ACCESS GRANTED</p>
-      <p class="dim">// project:</p>
-      <br>
-      <a href="https://ora-shadow-coach-web.vercel.app/" target="_blank" rel="noopener">> ORA — Speak English with confidence</a>
-      <a href="/projects/">> View description & stack</a>
-      <p class="dim" style="margin-top: 1.25rem;">// contact</p>
-      <p>> github: <a href="https://github.com/manusalgado" target="_blank" rel="noopener">github.com/manusalgado</a></p>
-      <p>> linkedin: <a href="https://www.linkedin.com/in/manuel-592968129/" target="_blank" rel="noopener">linkedin.com/in/manuel-592968129</a></p>
-      <p>> email: <a href="mailto:manuel@ora-io.com">manuel@ora-io.com</a></p>
-    </div>
-
-    <footer id="contact">
-      <p class="dim" style="margin-bottom: 0.5rem;">// get in touch</p>
-      <p>> github: <a href="https://github.com/manusalgado" target="_blank" rel="noopener">github.com/manusalgado</a></p>
-      <p>> linkedin: <a href="https://www.linkedin.com/in/manuel-592968129/" target="_blank" rel="noopener">linkedin.com/in/manuel-592968129</a></p>
-      <p>> email: <a href="mailto:manuel@ora-io.com">manuel@ora-io.com</a></p>
-    </footer>
   </div>
+</nav>
 
-  <script>
-    const keys = ['GHOST', 'PHANTOM', 'SHADOW', 'CIPHER'];
-    const EXPIRY_TIME = 60 * 60 * 1000;
-    const CHALLENGE_TIME = 60;
+<header class="wrap">
+  <p class="kicker">Senior Frontend Engineer</p>
+  <h1>I build fast, high-scale web products.</h1>
+  <p class="lede">
+    8+ years shipping React and TypeScript applications for <b>Pfizer</b>, <b>Disney Parks</b> and <b>Rappi</b>.
+    Now building AI products used in production. Based in Medellin, Colombia, working remote on US hours.
+  </p>
+</header>
 
-    const input = document.getElementById('answer');
-    const feedback = document.getElementById('feedback');
-    const timerEl = document.getElementById('timer');
-    const challengeSection = document.getElementById('challenge-section');
-    const projectsSection = document.getElementById('projects-section');
+<section id="work">
+  <div class="wrap">
+    <p class="section-label">Work</p>
 
-    let currentKey;
-    let timeLeft;
-    let timerInterval;
+    <div class="product">
+      <div>
+        <p class="tag">Live product</p>
+        <h2>Utterwell</h2>
+        <p>AI speaking coach for English at work. Real-time voice sessions that score clarity, structure and confidence, with per-skill feedback and progress tracking.</p>
+        <p class="stack">React, NestJS, WebSockets, real-time speech analysis, Stripe</p>
+        <a class="cta" href="https://utterwell.net" target="_blank" rel="noopener">Visit utterwell.net</a>
+      </div>
+      <a class="shot" href="https://utterwell.net" target="_blank" rel="noopener"><img src="assets/utterwell.png" alt="Utterwell landing page" loading="lazy"></a>
+    </div>
 
-    function getRandomKey() {
-      return keys[Math.floor(Math.random() * keys.length)];
-    }
+    <div class="product">
+      <div>
+        <p class="tag">Live product</p>
+        <h2>Copilot Ultralite</h2>
+        <p>AI meeting copilot with a discreet floating desktop window. Live transcription and answers during interviews and calls, with a web dashboard for sessions and usage.</p>
+        <p class="stack">React, TypeScript, Electron, streaming LLM integration</p>
+        <a class="cta" href="https://www.copilotultralite.com" target="_blank" rel="noopener">Visit copilotultralite.com</a>
+      </div>
+      <a class="shot" href="https://www.copilotultralite.com" target="_blank" rel="noopener"><img src="assets/copilot-ultralite.png" alt="Copilot Ultralite landing page" loading="lazy"></a>
+    </div>
 
-    function hideKey(key) {
-      document.querySelectorAll('[data-access-key]').forEach(el => el.removeAttribute('data-access-key'));
-      const oldComment = document.getElementById('hidden-key-comment');
-      if (oldComment) oldComment.remove();
+  </div>
+</section>
 
-      const locations = [
-        () => {
-          document.body.setAttribute('data-access-key', key);
-          console.clear();
-          console.log('%c// look elsewhere', 'color: #005500');
-        },
-        () => {
-          const comment = document.createComment(` ACCESS_KEY: ${key} `);
-          comment.id = 'hidden-key-comment';
-          document.body.insertBefore(comment, document.body.firstChild);
-          console.clear();
-          console.log('%c// not here, check the DOM', 'color: #005500');
-        },
-        () => {
-          console.clear();
-          console.log('%c=============================', 'color: #003300');
-          console.log('%c  ACCESS_KEY: ' + key, 'color: #00ff00; font-size: 14px; font-weight: bold');
-          console.log('%c=============================', 'color: #003300');
-        },
-        () => {
-          document.title = `[${key}] Manuel Salgado`;
-          console.clear();
-          console.log('%c// the answer is right in front of you', 'color: #005500');
-        }
-      ];
+<section id="experience">
+  <div class="wrap">
+    <p class="section-label">Experience</p>
 
-      const randomLocation = locations[Math.floor(Math.random() * locations.length)];
-      randomLocation();
-    }
+    <div class="xp-row">
+      <div>
+        <p class="xp-role">Publicis Groupe</p>
+        <p class="xp-org">Pfizer account</p>
+      </div>
+      <p class="xp-note">Architected a React 18 + TypeScript component library adopted across 6 client products. Full feature ownership with zero critical production incidents.</p>
+      <p class="xp-when">2023 - Present</p>
+    </div>
 
-    function startTimer() {
-      timeLeft = CHALLENGE_TIME;
-      updateTimerDisplay();
+    <div class="xp-row">
+      <div>
+        <p class="xp-role">Globant</p>
+        <p class="xp-org">Disney Parks account</p>
+      </div>
+      <p class="xp-note">React + TypeScript applications serving millions of daily users worldwide. Real-time WebSocket features with sub-second latency at global scale.</p>
+      <p class="xp-when">2021 - 2023</p>
+    </div>
 
-      timerInterval = setInterval(() => {
-        timeLeft--;
-        updateTimerDisplay();
+    <div class="xp-row">
+      <div>
+        <p class="xp-role">Rappi</p>
+        <p class="xp-org">MiTienda E-commerce</p>
+      </div>
+      <p class="xp-note">Led a zero-downtime Angular migration and state management overhaul in a hypergrowth product with 10M+ monthly active users.</p>
+      <p class="xp-when">2019 - 2021</p>
+    </div>
 
-        if (timeLeft <= 0) {
-          clearInterval(timerInterval);
-          feedback.textContent = '> time expired. generating new key...';
-          feedback.className = 'error';
-          input.value = '';
+  </div>
+</section>
 
-          setTimeout(() => {
-            initChallenge();
-          }, 1500);
-        }
-      }, 1000);
-    }
+<section>
+  <div class="wrap">
+    <p class="section-label">What I do</p>
+    <div class="caps">
+      <div class="cap">
+        <h3>Frontend architecture</h3>
+        <p>React, TypeScript, Next.js. Component libraries, design systems, testing with Jest, Cypress and Playwright, Core Web Vitals optimization.</p>
+      </div>
+      <div class="cap">
+        <h3>AI integration</h3>
+        <p>Claude and OpenAI APIs, RAG pipelines, embeddings, tool use, streaming interfaces over WebSockets and SSE.</p>
+      </div>
+      <div class="cap">
+        <h3>Full-stack delivery</h3>
+        <p>Node.js, NestJS, PostgreSQL, payments, auth, CI/CD. From design to production, end to end.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    function updateTimerDisplay() {
-      timerEl.textContent = `// time remaining: ${timeLeft}s`;
-      if (timeLeft <= 10) {
-        timerEl.classList.add('critical');
-      } else {
-        timerEl.classList.remove('critical');
-      }
-    }
+<footer id="contact">
+  <div class="wrap">
+    <h2>Let's work together.</h2>
+    <div class="contact-links">
+      <a href="mailto:mest.sal18@gmail.com">mest.sal18@gmail.com</a>
+      <a href="https://github.com/manusalgado" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/manuel-salgado" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <p class="fine">Manuel Salgado. Medellin, Colombia.</p>
+  </div>
+</footer>
 
-    function initChallenge() {
-      clearInterval(timerInterval);
-      currentKey = getRandomKey();
-      hideKey(currentKey);
-      feedback.textContent = '';
-      feedback.className = '';
-      document.title = 'Manuel Salgado';
-      startTimer();
-    }
-
-    function isAccessValid() {
-      const timestamp = sessionStorage.getItem('accessTimestamp');
-      if (!timestamp) return false;
-      const elapsed = Date.now() - parseInt(timestamp, 10);
-      return elapsed < EXPIRY_TIME;
-    }
-
-    function grantAccess() {
-      clearInterval(timerInterval);
-      sessionStorage.setItem('accessTimestamp', Date.now().toString());
-      challengeSection.classList.add('hidden');
-      projectsSection.classList.remove('hidden');
-      document.title = 'Manuel Salgado';
-      console.clear();
-    }
-
-    if (isAccessValid()) {
-      challengeSection.classList.add('hidden');
-      projectsSection.classList.remove('hidden');
-    } else {
-      sessionStorage.removeItem('accessTimestamp');
-      initChallenge();
-    }
-
-    input.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        const answer = input.value.trim().toUpperCase();
-
-        if (answer === currentKey) {
-          feedback.textContent = '> access granted...';
-          feedback.className = 'success';
-          timerEl.textContent = '';
-          setTimeout(() => {
-            grantAccess();
-          }, 800);
-        } else {
-          feedback.textContent = '> invalid key';
-          feedback.className = 'error';
-          input.value = '';
-        }
-      }
-    });
-  </script>
 </body>
 </html>
